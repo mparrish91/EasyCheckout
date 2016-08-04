@@ -14,7 +14,10 @@ final class ECInvoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
+            
+        }
+
     }
 
 

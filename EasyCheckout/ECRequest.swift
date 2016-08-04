@@ -15,7 +15,7 @@ final class ECRequest: NSObject {
     var requestMethod: String
     var URL: NSURL
 
-    typealias WMRequestHandler = (success: Bool, object: AnyObject?) -> ()
+    typealias ECRequestHandler = (success: Bool, object: AnyObject?) -> ()
 
 
     init(requestMethod: String, url: NSURL) {
@@ -36,23 +36,22 @@ final class ECRequest: NSObject {
 
     }
 
-    func performRequestWithHandler(handler: WMRequestHandler) {
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let delegate = appDelegate.returnRootVC() as? NSURLSessionDelegate
-
-        if let vc = delegate as? WMUserInputViewController {
-            vc.handler = handler
-        }
+    func performRequestWithHandler(handler: ECRequestHandler) {
 
         let request = preparedURLRequest()
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let manqueue = NSOperationQueue.mainQueue()
-        let session = NSURLSession(configuration: configuration, delegate:delegate, delegateQueue: manqueue)
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        session.dataTaskWithRequest(request) {(responseData, response, error) ->  Void in
+            if let data = responseData {
+                let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
+                if let response = response as? NSHTTPURLResponse where 200...299 ~= response.statusCode {
+                    handler(success: true, object: json)
+                }else {
+                    print("error: \(error!.localizedDescription)")
+                    handler(success: false, object: json)
 
-        let task = session.dataTaskWithRequest(request)
-        task.resume()
-        
+                }
+            }
+            }.resume()
     }
     
     

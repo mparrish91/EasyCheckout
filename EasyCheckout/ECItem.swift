@@ -18,14 +18,14 @@ final class ECItem: NSObject {
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-        high = dictionary["high"] as? String
-        low = dictionary["low"] as? String
-        forecast = dictionary["text"] as? String
-        date = dictionary["date"] as? String
-        if let date2 = date {
+//        high = dictionary["high"] as? String
+//        low = dictionary["low"] as? String
+//        forecast = dictionary["text"] as? String
+//        date = dictionary["date"] as? String
+//        if let date2 = date {
 //            self.setConvertedDate(date2)
         }
-    }
+    
 
 
 //    func setConvertedDate(dateString: String) {
