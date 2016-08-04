@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4260831B1D52FC880079EFDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260831A1D52FC880079EFDE /* AppDelegate.swift */; };
+		426083201D52FC880079EFDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4260831E1D52FC880079EFDE /* Main.storyboard */; };
+		426083221D52FC880079EFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426083211D52FC880079EFDE /* Assets.xcassets */; };
+		426083251D52FC880079EFDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426083231D52FC880079EFDE /* LaunchScreen.storyboard */; };
+		426083301D52FC880079EFDE /* EasyCheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */; };
+		4260833B1D52FC880079EFDE /* EasyCheckoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */; };
+		4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */; };
+		4260834E1D52FD730079EFDE /* ECItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834D1D52FD730079EFDE /* ECItem.swift */; };
+		426083501D52FD7D0079EFDE /* ECInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834F1D52FD7D0079EFDE /* ECInvoice.swift */; };
+		426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083511D52FD920079EFDE /* ECInvoiceViewController.swift */; };
+		426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083531D52FDA30079EFDE /* ECSelectionViewController.swift */; };
+		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4260832C1D52FC880079EFDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4260830F1D52FC880079EFDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 426083161D52FC880079EFDE;
+			remoteInfo = EasyCheckout;
+		};
+		426083371D52FC880079EFDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4260830F1D52FC880079EFDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 426083161D52FC880079EFDE;
+			remoteInfo = EasyCheckout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		426083171D52FC880079EFDE /* EasyCheckout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyCheckout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260831A1D52FC880079EFDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4260831F1D52FC880079EFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		426083211D52FC880079EFDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		426083241D52FC880079EFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		426083261D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCheckoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCheckoutTests.swift; sourceTree = "<group>"; };
+		426083311D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCheckoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCheckoutUITests.swift; sourceTree = "<group>"; };
+		4260833C1D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECNetworkingHelper.swift; sourceTree = "<group>"; };
+		4260834D1D52FD730079EFDE /* ECItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECItem.swift; sourceTree = "<group>"; };
+		4260834F1D52FD7D0079EFDE /* ECInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoice.swift; sourceTree = "<group>"; };
+		426083511D52FD920079EFDE /* ECInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceViewController.swift; sourceTree = "<group>"; };
+		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
+		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		426083141D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083281D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083331D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4260830E1D52FC880079EFDE = {
+			isa = PBXGroup;
+			children = (
+				426083191D52FC880079EFDE /* EasyCheckout */,
+				4260832E1D52FC880079EFDE /* EasyCheckoutTests */,
+				426083391D52FC880079EFDE /* EasyCheckoutUITests */,
+				426083181D52FC880079EFDE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		426083181D52FC880079EFDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				426083171D52FC880079EFDE /* EasyCheckout.app */,
+				4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */,
+				426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		426083191D52FC880079EFDE /* EasyCheckout */ = {
+			isa = PBXGroup;
+			children = (
+				4260831A1D52FC880079EFDE /* AppDelegate.swift */,
+				426083491D52FD1C0079EFDE /* ViewControllers */,
+				426083481D52FD150079EFDE /* Models */,
+				4260834A1D52FD3A0079EFDE /* Helpers */,
+				4260831E1D52FC880079EFDE /* Main.storyboard */,
+				426083211D52FC880079EFDE /* Assets.xcassets */,
+				426083231D52FC880079EFDE /* LaunchScreen.storyboard */,
+				426083261D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckout;
+			sourceTree = "<group>";
+		};
+		4260832E1D52FC880079EFDE /* EasyCheckoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */,
+				426083311D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckoutTests;
+			sourceTree = "<group>";
+		};
+		426083391D52FC880079EFDE /* EasyCheckoutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */,
+				4260833C1D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckoutUITests;
+			sourceTree = "<group>";
+		};
+		426083481D52FD150079EFDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4260834D1D52FD730079EFDE /* ECItem.swift */,
+				4260834F1D52FD7D0079EFDE /* ECInvoice.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		426083491D52FD1C0079EFDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				426083511D52FD920079EFDE /* ECInvoiceViewController.swift */,
+				426083531D52FDA30079EFDE /* ECSelectionViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4260834A1D52FD3A0079EFDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */,
+				426083551D52FDC10079EFDE /* UIColorExtensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		426083161D52FC880079EFDE /* EasyCheckout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4260833F1D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckout" */;
+			buildPhases = (
+				426083131D52FC880079EFDE /* Sources */,
+				426083141D52FC880079EFDE /* Frameworks */,
+				426083151D52FC880079EFDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyCheckout;
+			productName = EasyCheckout;
+			productReference = 426083171D52FC880079EFDE /* EasyCheckout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4260832A1D52FC880079EFDE /* EasyCheckoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 426083421D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutTests" */;
+			buildPhases = (
+				426083271D52FC880079EFDE /* Sources */,
+				426083281D52FC880079EFDE /* Frameworks */,
+				426083291D52FC880079EFDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4260832D1D52FC880079EFDE /* PBXTargetDependency */,
+			);
+			name = EasyCheckoutTests;
+			productName = EasyCheckoutTests;
+			productReference = 4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		426083351D52FC880079EFDE /* EasyCheckoutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 426083451D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutUITests" */;
+			buildPhases = (
+				426083321D52FC880079EFDE /* Sources */,
+				426083331D52FC880079EFDE /* Frameworks */,
+				426083341D52FC880079EFDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				426083381D52FC880079EFDE /* PBXTargetDependency */,
+			);
+			name = EasyCheckoutUITests;
+			productName = EasyCheckoutUITests;
+			productReference = 426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4260830F1D52FC880079EFDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MCP;
+				TargetAttributes = {
+					426083161D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4260832A1D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 426083161D52FC880079EFDE;
+					};
+					426083351D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 426083161D52FC880079EFDE;
+					};
+				};
+			};
+			buildConfigurationList = 426083121D52FC880079EFDE /* Build configuration list for PBXProject "EasyCheckout" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4260830E1D52FC880079EFDE;
+			productRefGroup = 426083181D52FC880079EFDE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				426083161D52FC880079EFDE /* EasyCheckout */,
+				4260832A1D52FC880079EFDE /* EasyCheckoutTests */,
+				426083351D52FC880079EFDE /* EasyCheckoutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		426083151D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				426083251D52FC880079EFDE /* LaunchScreen.storyboard in Resources */,
+				426083221D52FC880079EFDE /* Assets.xcassets in Resources */,
+				426083201D52FC880079EFDE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083291D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083341D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		426083131D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
+				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
+				4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */,
+				4260834E1D52FD730079EFDE /* ECItem.swift in Sources */,
+				426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */,
+				4260831B1D52FC880079EFDE /* AppDelegate.swift in Sources */,
+				426083501D52FD7D0079EFDE /* ECInvoice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083271D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				426083301D52FC880079EFDE /* EasyCheckoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083321D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4260833B1D52FC880079EFDE /* EasyCheckoutUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4260832D1D52FC880079EFDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 426083161D52FC880079EFDE /* EasyCheckout */;
+			targetProxy = 4260832C1D52FC880079EFDE /* PBXContainerItemProxy */;
+		};
+		426083381D52FC880079EFDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 426083161D52FC880079EFDE /* EasyCheckout */;
+			targetProxy = 426083371D52FC880079EFDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4260831E1D52FC880079EFDE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4260831F1D52FC880079EFDE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		426083231D52FC880079EFDE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				426083241D52FC880079EFDE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4260833D1D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4260833E1D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		426083401D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyCheckout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		426083411D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyCheckout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		426083431D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyCheckoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyCheckout.app/EasyCheckout";
+			};
+			name = Debug;
+		};
+		426083441D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyCheckoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyCheckout.app/EasyCheckout";
+			};
+			name = Release;
+		};
+		426083461D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyCheckoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EasyCheckout;
+			};
+			name = Debug;
+		};
+		426083471D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyCheckoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EasyCheckout;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		426083121D52FC880079EFDE /* Build configuration list for PBXProject "EasyCheckout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4260833D1D52FC880079EFDE /* Debug */,
+				4260833E1D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4260833F1D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083401D52FC880079EFDE /* Debug */,
+				426083411D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		426083421D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083431D52FC880079EFDE /* Debug */,
+				426083441D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		426083451D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083461D52FC880079EFDE /* Debug */,
+				426083471D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4260830F1D52FC880079EFDE /* Project object */;
+}
