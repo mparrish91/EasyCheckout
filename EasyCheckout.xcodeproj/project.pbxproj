@@ -19,6 +19,7 @@
 		426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083511D52FD920079EFDE /* ECInvoiceViewController.swift */; };
 		426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083531D52FDA30079EFDE /* ECSelectionViewController.swift */; };
 		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
+		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		426083511D52FD920079EFDE /* ECInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceViewController.swift; sourceTree = "<group>"; };
 		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
 		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				4260834D1D52FD730079EFDE /* ECItem.swift */,
 				4260834F1D52FD7D0079EFDE /* ECInvoice.swift */,
+				42E0709E1D5303CA0085D029 /* ECRequest.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
 				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
 				4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */,
+				42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */,
 				4260834E1D52FD730079EFDE /* ECItem.swift in Sources */,
 				426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */,
 				4260831B1D52FC880079EFDE /* AppDelegate.swift in Sources */,
@@ -528,6 +532,7 @@
 				426083411D52FC880079EFDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		426083421D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +541,7 @@
 				426083441D52FC880079EFDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		426083451D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +550,7 @@
 				426083471D52FC880079EFDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

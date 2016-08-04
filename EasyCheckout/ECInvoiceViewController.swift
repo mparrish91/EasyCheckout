@@ -6,4 +6,18 @@
 //  Copyright © 2016 MCP. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+final class ECInvoiceViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+    }
+
+
+
+
+}
