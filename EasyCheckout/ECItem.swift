@@ -6,41 +6,27 @@
 //  Copyright © 2016 MCP. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ECItem: NSObject {
 
     private var id: String?
     var name : String?
-    var Brand : String?
-    var Price : String?
+    var brand : String?
+    var price : String?
+    var image : UIImage?
+    var imageUrl : String?
+
+
 
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-//        high = dictionary["high"] as? String
-//        low = dictionary["low"] as? String
-//        forecast = dictionary["text"] as? String
-//        date = dictionary["date"] as? String
-//        if let date2 = date {
-//            self.setConvertedDate(date2)
-        }
-    
-
-
-//    func setConvertedDate(dateString: String) {
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "dd MMM yyyy"
-//        if let dateObject = dateFormatter.dateFromString(dateString) {
-//
-//            dateFormatter.dateFormat = "M.dd"
-//            self.newDate = dateFormatter.stringFromDate(dateObject)
-//
-//        }else{
-//            self.newDate = ""
-//        }
-//        
-//    }
-
+        id = dictionary["id"] as? String
+        name = dictionary["name"] as? String
+        price = dictionary["price"] as? String
+        brand = dictionary["rbrand"] as? String
+        imageUrl = dictionary["image_url"] as? String
+    }
     
 }

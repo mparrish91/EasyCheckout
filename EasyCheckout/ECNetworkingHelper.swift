@@ -23,28 +23,23 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
         getRequest.performRequestWithHandler(
             { (success: Bool, object: AnyObject?) -> Void in
 
-                var objectArray = [ECInvoice]()
+                var objectArray = [ECItem]()
 
                 if success {
                     if let itemArray = object?["shipment_items"] as? [[String:AnyObject]]{
 
                         for dic in itemArray {
-//                            let newResponseObject = WMWeatherResponseObject(dictionary: dic)
-//                            objectArray.append(newResponseObject)
+                            let newResponseObject = ECItem(dictionary: dic)
+                            objectArray.append(newResponseObject)
 
                         }
 
                         if itemArray.isEmpty == false {
-//                            completionHandler(data: objectArray, error: nil)
+                            completionHandler(data: objectArray, error: nil)
                         }
-                    }else if let dataSource = object?["query"] as? [String:AnyObject] {
-                        print("error retrieving forecasts ")
+                    }else if let dataSource = object?["shipment_items"] as? [String:AnyObject] {
+                        print("error retrieving fix")
 
-                        if dataSource["count"] as? Int == 0 {
-                            //user entered bad city input
-//                            NSNotificationCenter.defaultCenter().postNotificationName("badCity", object: nil)
-
-                        }
                     }
                     else {
                         NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
