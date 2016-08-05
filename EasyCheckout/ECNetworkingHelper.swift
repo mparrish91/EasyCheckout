@@ -14,7 +14,7 @@ final class ECNetworkingHelper: NSObject {
 
 func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Void) -> Void {
 
-    let newURL = NSURL(string:"https://fakemobile-backend.herokuapp.com/")
+    let newURL = NSURL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
 
     if let requestUrl = newURL {
 
@@ -26,15 +26,15 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
                 var objectArray = [ECInvoice]()
 
                 if success {
-                    if let dataSource = object?["query"] as? [String:AnyObject], forecastArray = dataSource["results"]?["channel"]??["item"]??["forecast"] as? [[String:AnyObject]] {
+                    if let itemArray = object?["shipment_items"] as? [[String:AnyObject]]{
 
-                        for dic in forecastArray {
+                        for dic in itemArray {
 //                            let newResponseObject = WMWeatherResponseObject(dictionary: dic)
 //                            objectArray.append(newResponseObject)
 
                         }
 
-                        if dataSource.isEmpty == false {
+                        if itemArray.isEmpty == false {
 //                            completionHandler(data: objectArray, error: nil)
                         }
                     }else if let dataSource = object?["query"] as? [String:AnyObject] {

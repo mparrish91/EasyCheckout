@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EasyCheckout/ECRequest.swift"
-            timestampString = "491984250.587717"
+            filePath = "EasyCheckout/ECNetworkingHelper.swift"
+            timestampString = "492073378.245419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "performRequestWithHandler(_:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchCurrentFix(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyCheckout/ECNetworkingHelper.swift"
+            timestampString = "492073597.166007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "fetchCurrentFix(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
