@@ -19,7 +19,9 @@
 		426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083511D52FD920079EFDE /* ECInvoiceViewController.swift */; };
 		426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083531D52FDA30079EFDE /* ECSelectionViewController.swift */; };
 		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
+		42A074A21D565DB000982958 /* ECProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A11D565DB000982958 /* ECProgressView.swift */; };
 		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
+		998DD2B43303FF7E751B639B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB753AB581024EF3AD4A93F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DB753AB581024EF3AD4A93F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		426083171D52FC880079EFDE /* EasyCheckout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyCheckout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4260831A1D52FC880079EFDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4260831F1D52FC880079EFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,7 +62,10 @@
 		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
 		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		42A074A01D55953800982958 /* EC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EC-Bridging-Header.h"; sourceTree = "<group>"; };
+		42A074A11D565DB000982958 /* ECProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressView.swift; sourceTree = "<group>"; };
 		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
+		7DA42E6B7C7D363335A12B7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B368B2FCCD6677BFBA36F293 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				998DD2B43303FF7E751B639B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B91937D75FB43F09FFD351E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DB753AB581024EF3AD4A93F /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38CE2D8227E22C17FE30FA03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B368B2FCCD6677BFBA36F293 /* Pods.debug.xcconfig */,
+				7DA42E6B7C7D363335A12B7B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4260830E1D52FC880079EFDE = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +118,8 @@
 				4260832E1D52FC880079EFDE /* EasyCheckoutTests */,
 				426083391D52FC880079EFDE /* EasyCheckoutUITests */,
 				426083181D52FC880079EFDE /* Products */,
+				38CE2D8227E22C17FE30FA03 /* Pods */,
+				2B91937D75FB43F09FFD351E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +190,7 @@
 			children = (
 				4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */,
 				426083551D52FDC10079EFDE /* UIColorExtensions.swift */,
+				42A074A11D565DB000982958 /* ECProgressView.swift */,
 				42A074A01D55953800982958 /* EC-Bridging-Header.h */,
 			);
 			name = Helpers;
@@ -176,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4260833F1D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckout" */;
 			buildPhases = (
+				98928B239A35B7CC8938296C /* Check Pods Manifest.lock */,
 				426083131D52FC880079EFDE /* Sources */,
 				426083141D52FC880079EFDE /* Frameworks */,
 				426083151D52FC880079EFDE /* Resources */,
+				E288A0884340C9937FB61F5C /* Embed Pods Frameworks */,
+				E8C3A9FD9D16BAA8CF5D1796 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,12 +325,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		98928B239A35B7CC8938296C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E288A0884340C9937FB61F5C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8C3A9FD9D16BAA8CF5D1796 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		426083131D52FC880079EFDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
+				42A074A21D565DB000982958 /* ECProgressView.swift in Sources */,
 				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
 				4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */,
 				42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */,
@@ -449,23 +528,27 @@
 		};
 		426083401D52FC880079EFDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B368B2FCCD6677BFBA36F293 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyCheckout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EC-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		426083411D52FC880079EFDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DA42E6B7C7D363335A12B7B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyCheckout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EC-Bridging-Header.h";
 			};
 			name = Release;
 		};

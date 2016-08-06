@@ -1,0 +1,10 @@
+PODS:
+  - TAPageControl (0.2.0)
+
+DEPENDENCIES:
+  - TAPageControl
+
+SPEC CHECKSUMS:
+  TAPageControl: fd11d779bbb5c2464ca2f55dde9e288213ea8a9b
+
+COCOAPODS: 0.39.0
