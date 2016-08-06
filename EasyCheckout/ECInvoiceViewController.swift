@@ -151,12 +151,6 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
 
 
-        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        productLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
 
 
@@ -190,26 +184,96 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         photoCollectionView.contentMode = .ScaleAspectFit
         photoCollectionView.image = UIImage(named: "background")
 
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
+        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
+
         cartLabel.translatesAutoresizingMaskIntoConstraints = false
         cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
         cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
+
+        //center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
         progressView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: 50).active = true
         progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
 
+        productIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        productIconImageView.topAnchor.constraintEqualToAnchor(progressView.bottomAnchor, constant: 20).active = true
+        productIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
+        productIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        productIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        productIconImageView.contentMode = .ScaleAspectFit
+        productIconImageView.image = UIImage(named: "nameIcon")
 
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
-        descriptionLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
-        descriptionLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
-        descriptionLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-        descriptionLabel.textAlignment = .Center
-        descriptionLabel.textColor = UIColor.whiteColor()
-        descriptionLabel.numberOfLines = 3
-        descriptionLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+        brandIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        brandIconImageView.topAnchor.constraintEqualToAnchor(dateLabel.bottomAnchor, constant: 5).active = true
+        brandIconImageView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 3).active = true
+        brandIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        brandIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        brandIconImageView.contentMode = .ScaleAspectFit
+        brandIconImageView.image = UIImage(named: "brandIcon")
+
+        costIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        costIconImageView.topAnchor.constraintEqualToAnchor(dateLabel.bottomAnchor, constant: 5).active = true
+        costIconImageView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 3).active = true
+        costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        costIconImageView.contentMode = .ScaleAspectFit
+        costIconImageView.image = UIImage(named: "costIcon")
+
+
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        productLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        productLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
+        productLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
+        productLabel.textAlignment = .Left
+        productLabel.textColor = UIColor.whiteColor()
+        productLabel.numberOfLines = 2
+        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        productLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+        brandLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+        brandLabel.textAlignment = .Center
+        brandLabel.textColor = UIColor.whiteColor()
+        brandLabel.numberOfLines = 3
+        brandLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+
+        costLabel.translatesAutoresizingMaskIntoConstraints = false
+        costLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        costLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
+        costLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
+        costLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+        costLabel.textAlignment = .Center
+        costLabel.textColor = UIColor.whiteColor()
+        costLabel.numberOfLines = 3
+        costLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+
+        keepButton.translatesAutoresizingMaskIntoConstraints = false
+        keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 30).active = true
+
+        keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
+        keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+
+        keepButton.font = UIFont(name: "Helvetica Neue", size: 30)
+        keepButton.textAlignment = .Center
+        keepButton.textColor = UIColor.whiteColor()
+        keepButton.numberOfLines = 3
+        keepButton.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+        keepButton.font = UIFont(name: "Avenir-Book", size: 18)
+        keepButton.textColor = UIColor(netHex: 0x9B9B9B)
+
+
+
 
 
 
