@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import TAPageControl
 
 
 final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private var items: [ECItem]
     private var photoCollectionView: UICollectionView
-//    private var pageControl: TAPageControl
+    private var pageControl: TAPageControl
     private var progressView: ECProgressView
     private var cartLabel: UILabel
 
@@ -36,7 +37,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         self.items = [ECItem]()
 
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-//        self.pageControl = TAPageControl()
+        self.pageControl = TAPageControl()
         self.progressView = ECProgressView()
         self.cartLabel = UILabel()
         self.productIconImageView = UIImageView()
@@ -155,8 +156,6 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
 
 
-
-
         ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
             
         }
@@ -166,16 +165,17 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        //PageControl
-//        self.pageControl.numberOfPages = items.count
+//        PageControl
+        self.pageControl.numberOfPages = items.count
 
     }
 
     override func loadView() {
         self.view = UIView()
         self.view.addSubview(photoCollectionView)
-//        self.view.addSubview(progressView)
-//        self.view.addSubview(titleLabel)
+        self.view.addSubview(pageControl)
+        self.view.addSubview(progressView)
+        self.view.addSubview(cartLabel)
 //        self.view.addSubview(submitButton)
     }
 
@@ -199,20 +199,20 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: 10).active = true
         photoCollectionView.contentMode = .ScaleAspectFit
 
-//        pageControl.translatesAutoresizingMaskIntoConstraints = false
-//        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
-//        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
+        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
 //
-//        cartLabel.translatesAutoresizingMaskIntoConstraints = false
-//        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
-//        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
-//
-//
-//        //center the progress view and constrain everything from it
-//        progressView.translatesAutoresizingMaskIntoConstraints = false
-//        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-//        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
-//        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+        cartLabel.translatesAutoresizingMaskIntoConstraints = false
+        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
+        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+
+
+        //center the progress view and constrain everything from it
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
+        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 //
 //
 //        productIconImageView.translatesAutoresizingMaskIntoConstraints = false
