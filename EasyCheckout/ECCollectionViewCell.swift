@@ -19,6 +19,11 @@ final class ECCollectionViewCell: UICollectionViewCell {
 
         self.photoImageView = UIImageView()
 
+          super.init(frame: frame)
+
+        contentView.addSubview(photoImageView)
+
+
 
         let margins = contentView.layoutMarginsGuide
         photoImageView.translatesAutoresizingMaskIntoConstraints = false

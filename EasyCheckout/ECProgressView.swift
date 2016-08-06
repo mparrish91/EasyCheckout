@@ -66,7 +66,7 @@ final class ECProgressView: UIView {
     }
 
     override func layoutSubviews() {
-        <#code#>
+
     }
         
 }
