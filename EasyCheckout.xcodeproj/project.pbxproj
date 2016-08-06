@@ -21,6 +21,7 @@
 		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
 		42A074A21D565DB000982958 /* ECProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A11D565DB000982958 /* ECProgressView.swift */; };
 		42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A31D56773C00982958 /* ECCollectionViewCell.swift */; };
+		42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A01D55953800982958 /* EC-Bridging-Header.h */; };
 		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
 		998DD2B43303FF7E751B639B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB753AB581024EF3AD4A93F /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -381,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */,
 				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
 				42A074A21D565DB000982958 /* ECProgressView.swift in Sources */,
 				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
@@ -539,7 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "EC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyCheckout/EC-Bridging-Header.h ";
 			};
 			name = Debug;
 		};
@@ -552,7 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "EC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyCheckout/EC-Bridging-Header.h ";
 			};
 			name = Release;
 		};

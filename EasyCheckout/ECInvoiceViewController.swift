@@ -12,7 +12,7 @@ import UIKit
 final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private var items: [ECItem]
-    private var photCollectionView: UICollectionView
+    private var photoCollectionView: UICollectionView
     private var pageControl: TAPageControl
     private var progressView: ECProgressView
     private var cartLabel: UILabel
@@ -35,7 +35,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     init?(_ coder: NSCoder? = nil) {
         self.items = [ECItem]()
 
-        self.photCollectionView = UICollectionView()
+        self.photoCollectionView = UICollectionView()
         self.pageControl = TAPageControl()
         self.progressView = ECProgressView()
         self.cartLabel = UILabel()
@@ -45,9 +45,9 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         self.productLabel = UILabel()
         self.brandLabel = UILabel()
         self.costLabel = UILabel()
-
-
         self.keepButton = UIButton()
+
+        self.title = "My Items" 
 
 
         if let coder = coder {
@@ -61,8 +61,8 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     convenience init?(items: [ECItem]) {
         self.init()
         self.items = items
-        self.photCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-        self.photCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+        self.photoCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         loadCollectionView()
         
     }
@@ -105,16 +105,17 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
     func loadCollectionView() {
 
+            photoCollectionView.delegate = self
 
-            photCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
+            photoCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 
-            photCollectionView.frame = self.view.frame
-            photCollectionView.backgroundColor = UIColor(netHex: 0xEEF4FB)
-            photCollectionView.alwaysBounceVertical = true
-            photCollectionView.bounces = true
+            photoCollectionView.frame = self.view.frame
+            photoCollectionView.backgroundColor = UIColor(netHex: 0xEEF4FB)
+            photoCollectionView.alwaysBounceVertical = true
+            photoCollectionView.bounces = true
             
-            photCollectionView.scrollEnabled = true
+            photoCollectionView.scrollEnabled = true
 
         
     }
@@ -129,7 +130,6 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         cartLabel.font = UIFont(name: "Avenir-Book", size: 12)
         cartLabel.textColor = UIColor(netHex: 0xF7B445)
 
-        photCollectionView.delegate = self
 
         self.pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
         self.pageControl.currentDotImage = UIImage(named: "oval22Copy9")
@@ -174,6 +174,51 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         self.pageControl.numberOfPages = items.count
 
     }
+
+
+    // MARK: AutoLayout
+
+    func setConstraints() {
+        let margins = contentView.layoutMarginsGuid
+
+
+        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
+        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: 10).active = true
+        photoCollectionView.contentMode = .ScaleAspectFit
+        photoCollectionView.image = UIImage(named: "background")
+
+        cartLabel.translatesAutoresizingMaskIntoConstraints = false
+        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
+        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        progressView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: 50).active = true
+        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+
+
+
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        descriptionLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
+        descriptionLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
+        descriptionLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+        descriptionLabel.textAlignment = .Center
+        descriptionLabel.textColor = UIColor.whiteColor()
+        descriptionLabel.numberOfLines = 3
+        descriptionLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+
+
+
+
+    }
+
+
+
+
 
 
 
