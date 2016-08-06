@@ -80,7 +80,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
             productLabel.text = item.name
             brandLabel.text = item.brand
-            costLabel.text = item.price 
+            costLabel.text = item.price
 
 
             if let image = item.image {
@@ -130,10 +130,22 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
         photCollectionView.delegate = self
 
+        self.pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+        self.pageControl.currentDotImage = UIImage(named: "oval22Copy9")
+        self.pageControl.dotImage = UIImage(named: "oval22Copy8")
+
+
         keepButton.setTitle("Keep :)", forState: .Normal)
         keepButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
+        keepButton.backgroundColor = UIColor(netHex: 0xF7B445)
         keepButton.layer.borderWidth = 0.0
         keepButton.titleLabel?.textColor = UIColor.whiteColor()
+
+        keepButton.layer.shadowColor = UIColor.blackColor().CGColor
+        keepButton.layer.shadowOffset = CGSizeMake(5, 5)
+        keepButton.layer.shadowRadius = 5
+        keepButton.layer.cornerRadius = 25
+
 
         keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
 
