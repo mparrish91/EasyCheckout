@@ -14,7 +14,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     private var items: [ECItem]
     private var photCollectionView: UICollectionView
     private var pageControl: TAPageControl
-    //    private var progressView: ECProgressView
+    private var progressView: ECProgressView
     private var cartLabel: UILabel
 
     private var productIconImageView: UIImageView
@@ -37,6 +37,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
         self.photCollectionView = UICollectionView()
         self.pageControl = TAPageControl()
+        self.progressView = ECProgressView()
         self.cartLabel = UILabel()
         self.productIconImageView = UIImageView()
         self.brandIconImageView = UIImageView()
@@ -74,7 +75,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     }
 
      func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? ECCollectionViewCell {
 
             let item = items[indexPath.row]
 
@@ -84,7 +85,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
 
             if let image = item.image {
-//                cell.forecastImageView.image = UIImage(named: image)
+                cell.photoImageView.image = UIImage(named: image)
 
 
             }
