@@ -37,17 +37,14 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
                         if itemArray.isEmpty == false {
                             completionHandler(data: objectArray, error: nil)
                         }
-                    }else if let dataSource = object?["shipment_items"] as? [String:AnyObject] {
+                    }else {
                         print("error retrieving fix")
 
                     }
-                    else {
-                        NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
-
-                    }
-
-                }else{
+                }else {
                     print("error performing request")
+                    NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
+
                 }
 
         })

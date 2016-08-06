@@ -58,6 +58,7 @@
 		426083511D52FD920079EFDE /* ECInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceViewController.swift; sourceTree = "<group>"; };
 		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
 		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		42A074A01D55953800982958 /* EC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EC-Bridging-Header.h"; sourceTree = "<group>"; };
 		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +164,7 @@
 			children = (
 				4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */,
 				426083551D52FDC10079EFDE /* UIColorExtensions.swift */,
+				42A074A01D55953800982958 /* EC-Bridging-Header.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";

@@ -11,38 +11,20 @@ import Foundation
 
 final class ECInvoice: NSObject {
 
-    var newDate: String?
-    var date : String?
-    var high : String?
-    var low : String?
-    var forecast: String?
+    var subtotal: String?
+    var tax : String?
+    var total : String?
+
 
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-        high = dictionary["high"] as? String
-        low = dictionary["low"] as? String
-        forecast = dictionary["text"] as? String
-        date = dictionary["date"] as? String
-        if let date2 = date {
-            self.setConvertedDate(date2)
-        }
+        subtotal = dictionary["subtotal"] as? String
+        tax = dictionary["tax"] as? String
+        total = dictionary["total"] as? String
+
     }
 
 
-    func setConvertedDate(dateString: String) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        if let dateObject = dateFormatter.dateFromString(dateString) {
-
-            dateFormatter.dateFormat = "M.dd"
-            self.newDate = dateFormatter.stringFromDate(dateObject)
-
-        }else{
-            self.newDate = ""
-        }
-        
-    }
-    
     
 }
