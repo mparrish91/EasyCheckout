@@ -20,7 +20,11 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
     private var productIconImageView: UIImageView
     private var brandIconImageView: UIImageView
     private var costIconImageView: UIImageView
-    private var keepButton: UIButton    
+    private var productLabel: UILabel
+    private var brandLabel: UILabel
+    private var costLabel: UILabel
+
+    private var keepButton: UIButton
 
 
 
@@ -30,6 +34,19 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
     init?(_ coder: NSCoder? = nil) {
         self.items = [ECItem]()
+
+        self.photCollectionView = UICollectionView()
+        self.pageControl = TAPageControl()
+        self.cartLabel = UILabel()
+        self.productIconImageView = UIImageView()
+        self.brandIconImageView = UIImageView()
+        self.costIconImageView = UIImageView()
+        self.productLabel = UILabel()
+        self.brandLabel = UILabel()
+        self.costLabel = UILabel()
+
+
+        self.keepButton = UIButton()
 
 
         if let coder = coder {
@@ -60,6 +77,11 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? UICollectionViewCell {
 
             let item = items[indexPath.row]
+
+            productLabel.text = item.name
+            brandLabel.text = item.brand
+            costLabel.text = item.price 
+
 
             if let image = item.image {
 //                cell.forecastImageView.image = UIImage(named: image)
@@ -101,6 +123,30 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        cartLabel.text = "My Cart"
+        cartLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        cartLabel.textColor = UIColor(netHex: 0xF7B445)
+
+        photCollectionView.delegate = self
+
+        keepButton.setTitle("Keep :)", forState: .Normal)
+        keepButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
+        keepButton.layer.borderWidth = 0.0
+        keepButton.titleLabel?.textColor = UIColor.whiteColor()
+
+        keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
+
+
+        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        productLabel.textColor = UIColor(netHex: 0x9B9B9B)
+        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
+        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+
+
 
         ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
             
