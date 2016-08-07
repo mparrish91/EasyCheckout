@@ -15,7 +15,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     private var items: [ECItem]
     private var photoCollectionView: UICollectionView
     private var pageControl: TAPageControl
-    private var progressView: ECProgressView
+    private var progressView: UIView
     private var cartLabel: UILabel
 
     private var productIconImageView: UIImageView
@@ -38,7 +38,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.pageControl = TAPageControl()
-        self.progressView = ECProgressView()
+        self.progressView = UIView()
         self.cartLabel = UILabel()
         self.productIconImageView = UIImageView()
         self.brandIconImageView = UIImageView()
@@ -47,6 +47,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.brandLabel = UILabel()
         self.costLabel = UILabel()
         self.keepButton = UIButton()
+
 
 
         if let coder = coder {
@@ -60,9 +61,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     convenience init?(items: [ECItem]) {
         self.init()
         self.items = items
-        self.progressView.count = items.count
-        self.progressView.createShapeLayer(items.count)
-        
+//        self.progressView.count = items.count
+//        self.progressView.createShapeLayer(items.count)
+
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.photoCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         loadCollectionView()
@@ -130,6 +131,11 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         self.title = "My Items"
         view.backgroundColor = UIColor.whiteColor()
+
+        progressView.backgroundColor = .yellowColor()
+
+        self.setConstraints()
+
 
         cartLabel.text = "My Cart"
         cartLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -207,11 +213,15 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         //        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
 
-        //center the progress view and constrain everything from it
+//        center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
-        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+                progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        //        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
+                progressView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 100).active = true
+        //        progressView.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 10).active = true
+                progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 50).active = true
+                progressView.widthAnchor.constraintEqualToAnchor(nil, constant: 100).active = true
+
         //
         //
         //        productIconImageView.translatesAutoresizingMaskIntoConstraints = false

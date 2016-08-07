@@ -171,7 +171,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         self.view = UIView()
 //        self.view.addSubview(photoCollectionView)
 //        self.view.addSubview(pageControl)
-        self.view.addSubview(progressView)
+//        self.view.addSubview(progressView)
 //        self.view.addSubview(cartLabel)
 //        self.view.addSubview(submitButton)
     }
@@ -187,6 +187,9 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
     func setConstraints() {
         let margins = view.layoutMarginsGuide
+
+        view.translatesAutoresizingMaskIntoConstraints = true
+
 
 
 //        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -206,10 +209,16 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
 
         //center the progress view and constrain everything from it
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
-        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+//        progressView.translatesAutoresizingMaskIntoConstraints = false
+////        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+////        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
+//        progressView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 100).active = true
+////        progressView.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 10).active = true
+//        progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 50).active = true
+//        progressView.widthAnchor.constraintEqualToAnchor(nil, constant: 100).active = true
+
+
+
 //
 //
 //        productIconImageView.translatesAutoresizingMaskIntoConstraints = false

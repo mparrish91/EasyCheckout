@@ -21,6 +21,9 @@ final class ECProgressView: UIView {
         self.coloredUpToIndex = 0
         self.layerArray = [CAShapeLayer]()
         super.init(frame: frame)
+
+        self.backgroundColor = .greenColor()
+
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -54,7 +57,7 @@ final class ECProgressView: UIView {
         print(count)
 
         //loop through the count
-        for _ in 0...count {
+        for _ in 1...count {
             let layer = CAShapeLayer()
             layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
 
@@ -78,6 +81,9 @@ final class ECProgressView: UIView {
 
             //add each to the view
             //store each variable in the layerArray
+
+        print(layerArray)
+
 
     }
 
@@ -105,6 +111,12 @@ final class ECProgressView: UIView {
     }
 
     override func layoutSubviews() {
+
+        for layer in layerArray {
+            self.layer.addSublayer(layer)
+
+
+        }
 
     }
         
