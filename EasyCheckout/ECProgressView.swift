@@ -11,7 +11,7 @@ import UIKit
 
 final class ECProgressView: UIView {
 
-    private var count: Int
+    var count: Int
     private var coloredUpToIndex: Int
     private var layerArray: [CAShapeLayer]
 
@@ -30,7 +30,9 @@ final class ECProgressView: UIView {
 
     convenience init?(count: Int) {
         self.init()
+        print(count)
         self.count = count
+        createShapeLayer(count)
     }
 
     //creates the shape layer, grayed with spaces in between
@@ -49,8 +51,10 @@ final class ECProgressView: UIView {
         //new single progress length = progress length - gap
         let newSingleProgressLength = singleProgressLength - gapLength
 
+        print(count)
+
         //loop through the count
-        for rect in 0...count {
+        for _ in 0...count {
             let layer = CAShapeLayer()
             layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
 
@@ -66,7 +70,7 @@ final class ECProgressView: UIView {
             layer.fillColor = UIColor.grayColor().CGColor
             self.layer.addSublayer(layer)
 
-            layerArray.append(rect)
+            layerArray.append(layer)
         }
 
         // for each draw a rectangle cashape layer

@@ -38,7 +38,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.pageControl = TAPageControl()
-        self.progressView = ECProgressView()
+        self.progressView = ECProgressView(count: items.count)!
         self.cartLabel = UILabel()
         self.productIconImageView = UIImageView()
         self.brandIconImageView = UIImageView()
@@ -134,9 +134,9 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         cartLabel.textColor = UIColor(netHex: 0xF7B445)
 
 
-//        self.pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-//        self.pageControl.currentDotImage = UIImage(named: "oval22Copy9")
-//        self.pageControl.dotImage = UIImage(named: "oval22Copy8")
+        self.pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+        self.pageControl.currentDotImage = UIImage(named: "oval22Copy9")
+        self.pageControl.dotImage = UIImage(named: "oval22Copy8")
 
 
         keepButton.setTitle("Keep :)", forState: .Normal)
@@ -156,10 +156,7 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
 
 
-        ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
-            
-        }
-
+   
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -172,10 +169,10 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
 
     override func loadView() {
         self.view = UIView()
-        self.view.addSubview(photoCollectionView)
-        self.view.addSubview(pageControl)
+//        self.view.addSubview(photoCollectionView)
+//        self.view.addSubview(pageControl)
         self.view.addSubview(progressView)
-        self.view.addSubview(cartLabel)
+//        self.view.addSubview(cartLabel)
 //        self.view.addSubview(submitButton)
     }
 
@@ -192,20 +189,20 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
         let margins = view.layoutMarginsGuide
 
 
-        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
-        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: 10).active = true
-        photoCollectionView.contentMode = .ScaleAspectFit
-
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
-        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
+//        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
+//        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+//        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+//        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: 10).active = true
+//        photoCollectionView.contentMode = .ScaleAspectFit
 //
-        cartLabel.translatesAutoresizingMaskIntoConstraints = false
-        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
-        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+//        pageControl.translatesAutoresizingMaskIntoConstraints = false
+//        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
+//        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
+////
+//        cartLabel.translatesAutoresizingMaskIntoConstraints = false
+//        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
+//        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
 
         //center the progress view and constrain everything from it

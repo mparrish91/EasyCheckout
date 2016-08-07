@@ -16,9 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = ECInvoiceViewController()
-        window?.makeKeyAndVisible()
+        ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
+
+            print(data)
+
+            if let selectionVC = ECSelectionViewController(items: data) {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                self.window?.rootViewController = selectionVC
+                self.window?.makeKeyAndVisible()
+            }
+        }
+
+//
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        window?.rootViewController = ECInvoiceViewController()
+//        window?.makeKeyAndVisible()
 
         return true
     }
