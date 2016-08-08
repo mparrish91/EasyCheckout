@@ -78,17 +78,13 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? ECCollectionViewCell {
 
             let item = items[indexPath.row]
-
             productLabel.text = item.name
-            print(productLabel.text)
             brandLabel.text = item.brand
-            costLabel.text = item.price
+            costLabel.text = item.price! + "0"
 
 
             if let image = item.image {
                 cell.photoImageView.image = image
-
-
             }
 
             return cell
@@ -99,7 +95,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        var size = collectionView.bounds.size
+        let size = collectionView.bounds.size
         return size
     }
 
@@ -205,8 +201,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.view.addSubview(brandIconImageView)
         self.view.addSubview(costIconImageView)
         self.view.addSubview(productLabel)
-//        self.view.addSubview(brandLabel)
-//        self.view.addSubview(costLabel)
+        self.view.addSubview(brandLabel)
+        self.view.addSubview(costLabel)
 
 
         //        self.view.addSubview(submitButton)
@@ -282,49 +278,50 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         costIconImageView.image = UIImage(named: "costIcon")
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
-        productLabel.centerXAnchor.constraintEqualToAnchor(productIconImageView.centerXAnchor).active = true
-        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.leadingAnchor, constant: 3).active = true
-        productLabel.textAlignment = .Left
-        productLabel.textColor = UIColor.whiteColor()
+        productLabel.centerYAnchor.constraintEqualToAnchor(productIconImageView.centerYAnchor).active = true
+        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.leadingAnchor, constant: 5).active = true
+        productLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        productLabel.textAlignment = .Center
         productLabel.numberOfLines = 2
         productLabel.font = UIFont(name: "Avenir-Book", size: 18)
         productLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
-//        brandLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-//        brandLabel.textAlignment = .Center
-//        brandLabel.textColor = UIColor.whiteColor()
-//        brandLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-//        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
-//        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
-//
-//
-//        costLabel.translatesAutoresizingMaskIntoConstraints = false
-//        costLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
-//        costLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
-//        costLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
-//        costLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-//        costLabel.textAlignment = .Center
-//        costLabel.textColor = UIColor.whiteColor()
-//        costLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-//        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
-//        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        //
-        //
-        //        keepButton.translatesAutoresizingMaskIntoConstraints = false
-        //        keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        //        keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 30).active = true
-        //
-        //        keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
-        //        keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-        //
-        //        keepButton.font = UIFont(name: "Helvetica Neue", size: 30)
-        //        keepButton.textAlignment = .Center
-        //        keepButton.textColor = UIColor.whiteColor()
-        //        keepButton.numberOfLines = 3
-        //        keepButton.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-        //        keepButton.font = UIFont(name: "Avenir-Book", size: 18)
-        //        keepButton.textColor = UIColor(netHex: 0x9B9B9B)
+        brandLabel.translatesAutoresizingMaskIntoConstraints = false
+        brandLabel.centerYAnchor.constraintEqualToAnchor(brandIconImageView.centerYAnchor).active = true
+        brandLabel.leadingAnchor.constraintEqualToAnchor(brandIconImageView.leadingAnchor, constant: 5).active = true
+        brandLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        brandLabel.textAlignment = .Center
+        brandLabel.numberOfLines = 1
+        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+
+        costLabel.translatesAutoresizingMaskIntoConstraints = false
+        costLabel.centerYAnchor.constraintEqualToAnchor(costIconImageView.centerYAnchor).active = true
+        costLabel.leadingAnchor.constraintEqualToAnchor(costIconImageView.leadingAnchor, constant: 5).active = true
+        costLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        costLabel.textAlignment = .Center
+        costLabel.numberOfLines = 1
+        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
         
+        
+                keepButton.translatesAutoresizingMaskIntoConstraints = false
+                keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+                keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 30).active = true
+        
+                keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
+                keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+        
+                keepButton.font = UIFont(name: "Helvetica Neue", size: 30)
+                keepButton.textAlignment = .Center
+                keepButton.textColor = UIColor.whiteColor()
+                keepButton.numberOfLines = 3
+                keepButton.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+                keepButton.font = UIFont(name: "Avenir-Book", size: 18)
+                keepButton.textColor = UIColor(netHex: 0x9B9B9B)
+
         
         
         

@@ -25,7 +25,7 @@ final class ECItem: NSObject {
         id = dictionary["id"] as? String
         name = dictionary["name"] as? String
         price = dictionary["price"] as? String
-        brand = dictionary["rbrand"] as? String
+        brand = dictionary["brand"] as? String
         imageUrl = dictionary["image_url"] as? String
     }
     
