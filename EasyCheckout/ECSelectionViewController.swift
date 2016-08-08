@@ -162,6 +162,26 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
 
 
+        //Nav Bar
+        let navString = "My Items"
+        let navLabel = UILabel()
+        navLabel.attributedText = returnNavTitleString(navString)
+        navLabel.sizeToFit()
+        self.navigationItem.titleView = navLabel
+        navLabel.textAlignment = NSTextAlignment.Center
+
+        let nextButtonImage = UIImage(named: "next")!
+        let nextButton = UIButton(type: .Custom)
+        nextButton.frame = CGRectMake(0,0,40,19)
+        nextButton.setImage(nextButtonImage, forState: .Normal)
+        nextButton.addTarget(self, action: "onBackButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+
+        let nextButtonItem = UIBarButtonItem(customView: nextButton)
+
+        self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
+
+
+
 
 
 
@@ -191,6 +211,10 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
     func onKeepButtonPressed() {
+
+    }
+
+    func onBackButtonPressed() {
 
     }
 
@@ -308,8 +332,13 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         
         
     }
-    
-    
+
+
+    func returnNavTitleString(stringValue: String) -> NSAttributedString {
+        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+        return newString
+    }
+
     
     
     

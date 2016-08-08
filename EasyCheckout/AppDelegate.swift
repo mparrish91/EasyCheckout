@@ -19,8 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if let selectionVC = ECSelectionViewController(items: data) {
+
+                    var nav = UINavigationController()
+    
+
+                    nav.viewControllers = [selectionVC]
+
+
+
                     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                    self.window?.rootViewController = selectionVC
+                    self.window?.rootViewController = nav
                     self.window?.makeKeyAndVisible()
                 }
             })

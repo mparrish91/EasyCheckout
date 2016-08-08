@@ -22,6 +22,7 @@
 		42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A31D56773C00982958 /* ECCollectionViewCell.swift */; };
 		42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A01D55953800982958 /* EC-Bridging-Header.h */; };
 		42A074AA1D5697EF00982958 /* TAPageControl.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A91D5697EF00982958 /* TAPageControl.h */; };
+		42DACC2E1D5834BF00348DF0 /* Bangla MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */; };
 		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
 		998DD2B43303FF7E751B639B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB753AB581024EF3AD4A93F /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		42A074A11D565DB000982958 /* ECProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressView.swift; sourceTree = "<group>"; };
 		42A074A31D56773C00982958 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
 		42A074A91D5697EF00982958 /* TAPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TAPageControl.h; path = Pods/TAPageControl/TAPageControl/TAPageControl.h; sourceTree = "<group>"; };
+		42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangla MN.ttf"; sourceTree = "<group>"; };
 		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
 		7DA42E6B7C7D363335A12B7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B368B2FCCD6677BFBA36F293 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		4260830E1D52FC880079EFDE = {
 			isa = PBXGroup;
 			children = (
+				42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */,
 				42A074A91D5697EF00982958 /* TAPageControl.h */,
 				426083191D52FC880079EFDE /* EasyCheckout */,
 				4260832E1D52FC880079EFDE /* EasyCheckoutTests */,
@@ -307,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DACC2E1D5834BF00348DF0 /* Bangla MN.ttf in Resources */,
 				426083251D52FC880079EFDE /* LaunchScreen.storyboard in Resources */,
 				426083221D52FC880079EFDE /* Assets.xcassets in Resources */,
 			);
