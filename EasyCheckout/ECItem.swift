@@ -16,6 +16,7 @@ final class ECItem: NSObject {
     var price : String?
     var imageUrl : String?
 
+    override init() {}
 
 
     init(dictionary: [String:AnyObject]) {

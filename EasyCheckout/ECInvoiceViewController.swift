@@ -83,12 +83,8 @@ final class ECInvoiceViewController: UIViewController, UICollectionViewDelegate,
             brandLabel.text = item.brand
             costLabel.text = item.price
 
+            cell.photoImageUrl = item.imageUrl
 
-            if let image = item.image {
-                cell.photoImageView.image = image
-
-
-            }
 
             return cell
         }else {

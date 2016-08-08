@@ -12,7 +12,7 @@ import TAPageControl
 
 final class ECSelectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    private var items: [ECItem]
+    private var item: ECItem
     private var photoCollectionView: UICollectionView
     private var pageControl: TAPageControl
     private var progressView: UIView
@@ -34,7 +34,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     }
 
     init?(_ coder: NSCoder? = nil) {
-        self.items = [ECItem]()
+        self.item = ECItem()
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.pageControl = TAPageControl()
         self.progressView = UIView()
@@ -57,9 +57,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         }
     }
 
-    convenience init?(items: [ECItem]) {
+    convenience init?(item: ECItem) {
         self.init()
-        self.items = items
+        self.item = item
 //        self.progressView.count = items.count
 //        self.progressView.createShapeLayer(items.count)
         self.photoCollectionView.registerClass(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -71,13 +71,12 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     // MARK: UICollectionView
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count ?? 0
+        return 1
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? ECCollectionViewCell {
 
-            let item = items[indexPath.row]
             productLabel.text = item.name
             brandLabel.text = item.brand
             costLabel.text = item.price! + "0"
@@ -169,7 +168,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         let nextButton = UIButton(type: .Custom)
         nextButton.frame = CGRectMake(0,0,40,19)
         nextButton.setImage(nextButtonImage, forState: .Normal)
-        nextButton.addTarget(self, action: "onBackButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         let nextButtonItem = UIBarButtonItem(customView: nextButton)
 
@@ -186,7 +185,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         super.viewDidAppear(animated)
 
         //        PageControl
-        self.pageControl.numberOfPages = items.count
+        self.pageControl.numberOfPages = 4
 
     }
 
@@ -211,7 +210,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     }
 
-    func onBackButtonPressed() {
+    func onNextButtonPressed() {
 
     }
 
@@ -309,11 +308,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
         keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
         keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-
-
-
-
-
 
 
 
