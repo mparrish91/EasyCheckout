@@ -6,7 +6,7 @@
 //  Copyright © 2016 MCP. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class ECItem: NSObject {
 
@@ -14,7 +14,6 @@ final class ECItem: NSObject {
     var name : String?
     var brand : String?
     var price : String?
-    var image : UIImage?
     var imageUrl : String?
 
 

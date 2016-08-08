@@ -14,6 +14,18 @@ import UIKit
 final class ECCollectionViewCell: UICollectionViewCell {
 
     var photoImageView: UIImageView
+    var photoImageUrl: String? {
+        didSet{
+            if let url = NSURL(string: photoImageUrl!){
+                if let data = NSData(contentsOfURL: url) {
+                    self.photoImageView.image = UIImage(named: "placeholder")
+                    self.photoImageView.downloadImageFrom(link: photoImageUrl!, contentMode: UIViewContentMode.ScaleAspectFit)
+
+                }
+            }
+            
+        }
+    }
 
     override init(frame: CGRect) {
 

@@ -81,11 +81,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
             productLabel.text = item.name
             brandLabel.text = item.brand
             costLabel.text = item.price! + "0"
+            cell.photoImageUrl = item.imageUrl
 
-
-            if let image = item.image {
-                cell.photoImageView.image = image
-            }
 
             return cell
         }else {
