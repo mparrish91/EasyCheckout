@@ -177,10 +177,10 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     override func loadView() {
         self.view = UIView()
-        //        self.view.addSubview(photoCollectionView)
-        //        self.view.addSubview(pageControl)
+        self.view.addSubview(photoCollectionView)
+        self.view.addSubview(pageControl)
         self.view.addSubview(progressView)
-        //        self.view.addSubview(cartLabel)
+        self.view.addSubview(cartLabel)
         //        self.view.addSubview(submitButton)
     }
 
@@ -197,30 +197,36 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         let margins = view.layoutMarginsGuide
 
 
-        //        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        //        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
-        //        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        //        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        //        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: 10).active = true
-        //        photoCollectionView.contentMode = .ScaleAspectFit
-        //
-        //        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        //        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:5).active = true
-        //        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.topAnchor, constant: 0).active = true
-        ////
-        //        cartLabel.translatesAutoresizingMaskIntoConstraints = false
-        //        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: 5).active = true
-        //        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+        photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
+        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: -5).active = true
+        photoCollectionView.contentMode = .ScaleAspectFit
+
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:-5).active = true
+        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.bottomAnchor, constant: -20).active = true
+
+        cartLabel.translatesAutoresizingMaskIntoConstraints = false
+        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: -5).active = true
+        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
 
 //        center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
-                progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        //        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
-                progressView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 100).active = true
-        //        progressView.bottomAnchor.constraintEqualToAnchor(margins.bottomAnchor, constant: 10).active = true
-                progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 50).active = true
-                progressView.widthAnchor.constraintEqualToAnchor(nil, constant: 100).active = true
+        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
+        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+        progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 6).active = true
+
+
+        // FIXME: Why is this negative, its working for now
+
+        progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -10).active = true
+
+
+
 
         //
         //
