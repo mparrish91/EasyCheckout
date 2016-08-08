@@ -153,6 +153,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         keepButton.layer.shadowOffset = CGSizeMake(5, 5)
         keepButton.layer.shadowRadius = 5
         keepButton.layer.cornerRadius = 25
+        keepButton.layer.shadowOpacity = 0.3
+
 
 
         keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
@@ -203,9 +205,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.view.addSubview(productLabel)
         self.view.addSubview(brandLabel)
         self.view.addSubview(costLabel)
-
-
-        //        self.view.addSubview(submitButton)
+        self.view.addSubview(keepButton)
     }
 
 
@@ -306,28 +306,20 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
         
-        
-                keepButton.translatesAutoresizingMaskIntoConstraints = false
-                keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-                keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 30).active = true
-        
-                keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
-                keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-        
-                keepButton.font = UIFont(name: "Helvetica Neue", size: 30)
-                keepButton.textAlignment = .Center
-                keepButton.textColor = UIColor.whiteColor()
-                keepButton.numberOfLines = 3
-                keepButton.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-                keepButton.font = UIFont(name: "Avenir-Book", size: 18)
-                keepButton.textColor = UIColor(netHex: 0x9B9B9B)
 
-        
-        
-        
-        
-        
-        
+        keepButton.translatesAutoresizingMaskIntoConstraints = false
+        keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
+        keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
+        keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+
+
+
+
+
+
+
+
     }
 
 
