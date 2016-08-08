@@ -181,6 +181,10 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.view.addSubview(pageControl)
         self.view.addSubview(progressView)
         self.view.addSubview(cartLabel)
+        self.view.addSubview(productIconImageView)
+        self.view.addSubview(brandIconImageView)
+        self.view.addSubview(costIconImageView)
+
         //        self.view.addSubview(submitButton)
     }
 
@@ -222,37 +226,32 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
         // FIXME: Why is this negative, its working for now
-
         progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -10).active = true
 
 
+        productIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        productIconImageView.topAnchor.constraintEqualToAnchor(progressView.bottomAnchor, constant: 20).active = true
+        productIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
+        productIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        productIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        productIconImageView.contentMode = .ScaleAspectFit
+        productIconImageView.image = UIImage(named: "nameIcon")
 
+        brandIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        brandIconImageView.topAnchor.constraintEqualToAnchor(productIconImageView.bottomAnchor, constant: 5).active = true
+        brandIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
+        brandIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        brandIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        brandIconImageView.contentMode = .ScaleAspectFit
+        brandIconImageView.image = UIImage(named: "brandIcon")
 
-        //
-        //
-        //        productIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        //        productIconImageView.topAnchor.constraintEqualToAnchor(progressView.bottomAnchor, constant: 20).active = true
-        //        productIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
-        //        productIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        productIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        productIconImageView.contentMode = .ScaleAspectFit
-        //        productIconImageView.image = UIImage(named: "nameIcon")
-        //
-        //        brandIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        //        brandIconImageView.topAnchor.constraintEqualToAnchor(dateLabel.bottomAnchor, constant: 5).active = true
-        //        brandIconImageView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 3).active = true
-        //        brandIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        brandIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        brandIconImageView.contentMode = .ScaleAspectFit
-        //        brandIconImageView.image = UIImage(named: "brandIcon")
-        //
-        //        costIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        //        costIconImageView.topAnchor.constraintEqualToAnchor(dateLabel.bottomAnchor, constant: 5).active = true
-        //        costIconImageView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 3).active = true
-        //        costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        //        costIconImageView.contentMode = .ScaleAspectFit
-        //        costIconImageView.image = UIImage(named: "costIcon")
+        costIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        costIconImageView.topAnchor.constraintEqualToAnchor(brandIconImageView.bottomAnchor, constant: 5).active = true
+        costIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
+        costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
+        costIconImageView.contentMode = .ScaleAspectFit
+        costIconImageView.image = UIImage(named: "costIcon")
         //
         //
         //        productLabel.translatesAutoresizingMaskIntoConstraints = false
