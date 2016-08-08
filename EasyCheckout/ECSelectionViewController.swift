@@ -35,7 +35,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     init?(_ coder: NSCoder? = nil) {
         self.items = [ECItem]()
-
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.pageControl = TAPageControl()
         self.progressView = UIView()
@@ -63,9 +62,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.items = items
 //        self.progressView.count = items.count
 //        self.progressView.createShapeLayer(items.count)
-
-        self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-        self.photoCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.photoCollectionView.registerClass(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         loadCollectionView()
 
     }
@@ -83,6 +80,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
             let item = items[indexPath.row]
 
             productLabel.text = item.name
+            print(productLabel.text)
             brandLabel.text = item.brand
             costLabel.text = item.price
 
@@ -109,12 +107,14 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     func loadCollectionView() {
 
         photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+
 
         photoCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 
         photoCollectionView.frame = self.view.frame
-        photoCollectionView.backgroundColor = UIColor(netHex: 0xEEF4FB)
+        photoCollectionView.backgroundColor = .whiteColor()
         photoCollectionView.alwaysBounceVertical = true
         photoCollectionView.bounces = true
 
@@ -204,6 +204,10 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.view.addSubview(productIconImageView)
         self.view.addSubview(brandIconImageView)
         self.view.addSubview(costIconImageView)
+        self.view.addSubview(productLabel)
+//        self.view.addSubview(brandLabel)
+//        self.view.addSubview(costLabel)
+
 
         //        self.view.addSubview(submitButton)
     }
@@ -276,38 +280,34 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
         costIconImageView.contentMode = .ScaleAspectFit
         costIconImageView.image = UIImage(named: "costIcon")
-        //
-        //
-        //        productLabel.translatesAutoresizingMaskIntoConstraints = false
-        //        productLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
-        //        productLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
-        //        productLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
-        //        productLabel.textAlignment = .Left
-        //        productLabel.textColor = UIColor.whiteColor()
-        //        productLabel.numberOfLines = 2
-        //        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        //        productLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        //
-        //        brandLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-        //        brandLabel.textAlignment = .Center
-        //        brandLabel.textColor = UIColor.whiteColor()
-        //        brandLabel.numberOfLines = 3
-        //        brandLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-        //        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        //        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        //
-        //
-        //        costLabel.translatesAutoresizingMaskIntoConstraints = false
-        //        costLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
-        //        costLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
-        //        costLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
-        //        costLabel.font = UIFont(name: "Helvetica Neue", size: 30)
-        //        costLabel.textAlignment = .Center
-        //        costLabel.textColor = UIColor.whiteColor()
-        //        costLabel.numberOfLines = 3
-        //        costLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
-        //        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
-        //        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        productLabel.centerXAnchor.constraintEqualToAnchor(productIconImageView.centerXAnchor).active = true
+        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.leadingAnchor, constant: 3).active = true
+        productLabel.textAlignment = .Left
+        productLabel.textColor = UIColor.whiteColor()
+        productLabel.numberOfLines = 2
+        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        productLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+//        brandLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+//        brandLabel.textAlignment = .Center
+//        brandLabel.textColor = UIColor.whiteColor()
+//        brandLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+//        brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
+//        brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
+//
+//
+//        costLabel.translatesAutoresizingMaskIntoConstraints = false
+//        costLabel.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+//        costLabel.topAnchor.constraintEqualToAnchor(factImageView.bottomAnchor, constant: 30).active = true
+//        costLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 30).active = true
+//        costLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+//        costLabel.textAlignment = .Center
+//        costLabel.textColor = UIColor.whiteColor()
+//        costLabel.text = "Swipe Right to Like \nor\n Swipe Left to Dislike"
+//        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
+//        costLabel.textColor = UIColor(netHex: 0x9B9B9B)
         //
         //
         //        keepButton.translatesAutoresizingMaskIntoConstraints = false
