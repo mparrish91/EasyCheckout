@@ -53,16 +53,29 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         let margins = contentView.layoutMarginsGuide
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
-        photoImageView.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: 0).active = true
-        photoImageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor, constant: 0).active = true
-        photoImageView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: 0).active = true
-        photoImageView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 0).active = true
+        photoImageView.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        photoImageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor, constant: 5).active = true
+        photoImageView.trailingAnchor.constraintEqualToAnchor(productLabel.leadingAnchor, constant: 30).active = true
+        photoImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 34).active = true
+        photoImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 52).active = true
         photoImageView.contentMode = .ScaleAspectFit
 
 
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        productLabel.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: 5).active = true
+        productLabel.leadingAnchor.constraintEqualToAnchor(photoImageView.leadingAnchor, constant: 30).active = true
+        productLabel.trailingAnchor.constraintEqualToAnchor(costIconImageView.leadingAnchor, constant: 80).active = true
+        productLabel.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 5).active = true
+
+        productLabel.textAlignment = .Center
+        productLabel.numberOfLines = 2
+        productLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        productLabel.textColor = UIColor.blackColor()   
+
+
         costIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        costIconImageView.topAnchor.constraintEqualToAnchor(brandIconImageView.bottomAnchor, constant: 5).active = true
-        costIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
+        costIconImageView.leadingAnchor.constraintEqualToAnchor(productLabel.trailingAnchor, constant: 80).active = true
+        costIconImageView.trailingAnchor.constraintEqualToAnchor(costLabel.trailingAnchor, constant: 5).active = true
         costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
         costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
         costIconImageView.contentMode = .ScaleAspectFit
@@ -74,7 +87,7 @@ final class ECInvoiceTableViewCell: UITableViewCell {
         costLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
         costLabel.textAlignment = .Center
         costLabel.numberOfLines = 1
-        costLabel.font = UIFont(name: "Avenir-Book", size: 18)
+        costLabel.font = UIFont(name: "Avenir-Book", size: 12)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
 

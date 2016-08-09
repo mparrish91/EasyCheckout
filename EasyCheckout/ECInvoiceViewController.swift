@@ -85,10 +85,35 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         lineView.backgroundColor = UIColor.blackColor()
 
 
-        tableView.registerClass(MyCustomCell.self, forCellReuseIdentifier: cellReuseIdendifier)
+        itemOverviewTableView.registerClass(MyCustomCell.self, forCellReuseIdentifier: cellReuseIdendifier)
 
-        tableView.dataSource = self
-        tableView.delegate = self
+        itemOverviewTableView.dataSource = self
+        itemOverviewTableView.delegate = self
+
+
+        subtotalLabel.textAlignment = .Center
+        subtotalLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        subtotalLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+        subtotalAmountLabel.textAlignment = .Center
+        subtotalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        subtotalAmountLabel.textColor = UIColor(netHex: 0x9B9B9B)
+
+        taxLabel.textAlignment = .Center
+        taxLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        taxLabel.textColor = UIColor.blackColor()
+
+        taxAmountLabel.textAlignment = .Center
+        taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        taxAmountLabel.textColor = UIColor.blackColor()
+
+        totalLabel.textAlignment = .Center
+        totalLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        totalLabel.textColor = UIColor.blackColor()
+
+        totalLabel.textAlignment = .Center
+        totalLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        totalLabel.textColor = UIColor.blackColor()
 
         confirmButton.setTitle("Confirm", forState: .Normal)
         confirmButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
@@ -158,13 +183,16 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         subtotalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
         subtotalLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
 
+
         subtotalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         subtotalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
         subtotalAmountLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
 
+
         taxLabel.translatesAutoresizingMaskIntoConstraints = false
         taxLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
         taxLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
+
 
         taxAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         taxAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
@@ -187,7 +215,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        confirmButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
+        confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
         confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
         confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
         
