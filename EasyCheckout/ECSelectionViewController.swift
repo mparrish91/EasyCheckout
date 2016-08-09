@@ -107,10 +107,11 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         photoCollectionView.frame = self.view.frame
         photoCollectionView.backgroundColor = .whiteColor()
-        photoCollectionView.alwaysBounceVertical = true
-        photoCollectionView.bounces = true
+//        photoCollectionView.alwaysBounceVertical = true
+//        photoCollectionView.bounces = true
 
-        photoCollectionView.scrollEnabled = true
+//        photoCollectionView.scrollEnabled = true
+        photoCollectionView.showsVerticalScrollIndicator = false
 
 
     }

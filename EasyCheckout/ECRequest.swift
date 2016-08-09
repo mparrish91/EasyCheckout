@@ -14,13 +14,17 @@ final class ECRequest: NSObject {
 
     var requestMethod: String
     var URL: NSURL
+    var params: [String : AnyObject]
+
 
     typealias ECRequestHandler = (success: Bool, object: AnyObject?) -> ()
 
 
-    init(requestMethod: String, url: NSURL) {
+    init(requestMethod: String, url: NSURL, params: [String : AnyObject] ) {
         self.requestMethod = requestMethod
         self.URL = url
+        self.params = params
+
 
     }
 
@@ -29,6 +33,26 @@ final class ECRequest: NSObject {
         let preparedURLString = self.URL.absoluteString
         let preparedURL = NSURL(string: preparedURLString)
         let request = NSMutableURLRequest(URL: preparedURL!)
+
+        if requestMethod == "PUT" {
+                var paramString = ""
+                for (key, value) in params {
+                    let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+                    let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+                    paramString += "\(escapedKey)=\(escapedValue)&"
+                    
+
+                request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+                request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+            }
+            
+            return request
+
+        }
+
+//        let preparedURLString = self.URL.absoluteString
+//        let preparedURL = NSURL(string: preparedURLString)
+//        let request = NSMutableURLRequest(URL: preparedURL!)
         request.HTTPMethod = self.requestMethod
 
         return request

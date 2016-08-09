@@ -55,11 +55,49 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
 
 
 
-//
-//func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: [WMWeatherResponseObject], error: NSError?) -> Void) -> Void {
-//
-//}
-//
+
+func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvoice, error: NSError?) -> Void) -> Void {
+
+
+    let newURL = NSURL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
+
+    let params = ["keep" : keptItemsArray]
+
+    if let requestUrl = newURL {
+
+        let putRequest = ECRequest(requestMethod: "PUT", url: requestUrl)
+
+        putRequest.performRequestWithHandler(
+            { (success: Bool, object: AnyObject?) -> Void in
+
+                var newResponseObject: ECInvoice
+
+
+                if success {
+                    if let dic = object as? [String:AnyObject]{
+                        newResponseObject = ECInvoice(dictionary: dic)
+
+                        if dic.isEmpty == false {
+                            completionHandler(data: newResponseObject, error: nil)
+                        }
+
+                    }else {
+                        print("error retrieving fix")
+
+                    }
+                }else {
+                    print("error performing request")
+                    NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
+                    
+                }
+                
+        })
+    }
+    
+    }
+
+}
+
 
 
 }
