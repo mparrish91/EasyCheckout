@@ -85,7 +85,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         lineView.backgroundColor = UIColor.blackColor()
 
 
-        itemOverviewTableView.registerClass(MyCustomCell.self, forCellReuseIdentifier: cellReuseIdendifier)
+        itemOverviewTableView.registerClass(ECInvoiceTableViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
 
         itemOverviewTableView.dataSource = self
         itemOverviewTableView.delegate = self
@@ -149,15 +149,25 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     // MARK: UITableView
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+
+        if let fix = items {
+            return fix.count
+        }else {
+            return 0
+        }
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdendifier, forIndexPath: indexPath) as! ECInvoiceTableViewCell
-        cell.photoImageUrl = items[indexPath.row].imageUrl
-        cell.productLabel.text = items[indexPath.row].name
-        cell.costLabel.text = items[indexPath.row].price
+
+        if let fix = items {
+            let item = fix[indexPath.row] as ECItem
+            cell.photoImageUrl = item.imageUrl
+            cell.productLabel.text = item.name
+            cell.costLabel.text = item.price
+        }
+
 
 
 
@@ -222,6 +232,17 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         
         
     }
+
+
+    func returnNavTitleString(stringValue: String) -> NSAttributedString {
+        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+        return newString
+    }
+
+
+
+
+
 
 
     

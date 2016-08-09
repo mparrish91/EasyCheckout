@@ -37,7 +37,6 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-
         contentView.addSubview(photoImageView)
         contentView.addSubview(productLabel)
         contentView.addSubview(costIconImageView)
@@ -45,7 +44,7 @@ final class ECInvoiceTableViewCell: UITableViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func layoutSubviews() {
@@ -93,6 +92,9 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
 
     }
+
+
+
     
 
     
