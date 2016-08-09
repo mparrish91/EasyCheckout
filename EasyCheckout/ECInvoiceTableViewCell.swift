@@ -79,9 +79,6 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
 
 
-
-
-
     }
     
 

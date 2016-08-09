@@ -21,6 +21,8 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     private var taxAmountLabel: UILabel
     private var lineView: UIView
     private var totalLabel: UILabel
+    private var confirmButton: UIButton
+
 
     private var totalAmountLabel: UILabel
     
@@ -43,6 +45,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         self.lineView = UIView()
         self.totalLabel = UILabel()
         self.totalAmountLabel = UILabel()
+        self.confirmButton = UIButton()
 
         if let coder = coder {
             super.init(coder: coder)
@@ -86,6 +89,22 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
         tableView.dataSource = self
         tableView.delegate = self
+
+        confirmButton.setTitle("Confirm", forState: .Normal)
+        confirmButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
+        confirmButton.backgroundColor = UIColor(netHex: 0xF7B445)
+        confirmButton.layer.borderWidth = 0.0
+        confirmButton.titleLabel?.textColor = UIColor.whiteColor()
+
+        confirmButton.layer.shadowColor = UIColor.blackColor().CGColor
+        confirmButton.layer.shadowOffset = CGSizeMake(5, 5)
+        confirmButton.layer.shadowRadius = 5
+        confirmButton.layer.cornerRadius = 25
+        confirmButton.layer.shadowOpacity = 0.3
+
+
+        setConstraints()
+
     }
 
     override func loadView() {
@@ -121,7 +140,61 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     }
 
     
-    
+
+
+    // MARK: AutoLayout
+
+    func setConstraints() {
+        let margins = view.layoutMarginsGuide
+
+
+        itemOverviewTableView.translatesAutoresizingMaskIntoConstraints = false
+        itemOverviewTableView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
+        itemOverviewTableView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+        itemOverviewTableView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+        itemOverviewTableView.bottomAnchor.constraintEqualToAnchor(subtotalAmountLabel.topAnchor, constant: 100).active = true
+
+        subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtotalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+        subtotalLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
+
+        subtotalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtotalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        subtotalAmountLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
+
+        taxLabel.translatesAutoresizingMaskIntoConstraints = false
+        taxLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+        taxLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
+
+        taxAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+        taxAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        taxAmountLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
+
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.topAnchor.constraintEqualToAnchor(taxAmountLabel.bottomAnchor, constant: 10).active = true
+        lineView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+        lineView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+        lineView.heightAnchor.constraintEqualToAnchor(nil, constant: 1).active = true
+
+        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+        totalLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
+
+        totalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        totalAmountLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
+
+
+        confirmButton.translatesAutoresizingMaskIntoConstraints = false
+        confirmButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+        confirmButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
+        confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
+        confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+        
+        
+        
+    }
+
 
     
     
