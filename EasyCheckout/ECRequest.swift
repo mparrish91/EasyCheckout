@@ -34,25 +34,23 @@ final class ECRequest: NSObject {
         let preparedURL = NSURL(string: preparedURLString)
         let request = NSMutableURLRequest(URL: preparedURL!)
 
-        if requestMethod == "PUT" {
-                var paramString = ""
-                for (key, value) in params {
-                    let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
-                    let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
-                    paramString += "\(escapedKey)=\(escapedValue)&"
-                    
+        //try this if not, convert to raw json/ then set the body
+//        let data = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
+//        let string = NSString(data: data, encoding: NSUTF8StringEncoding)
 
-                request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        if requestMethod == "PUT" {
+            var paramString = ""
+            for (key, value) in params {
+                let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+                let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+                paramString += "\(escapedKey)=\(escapedValue)&"
+
                 request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
             }
-            
             return request
-
         }
 
-//        let preparedURLString = self.URL.absoluteString
-//        let preparedURL = NSURL(string: preparedURLString)
-//        let request = NSMutableURLRequest(URL: preparedURL!)
+
         request.HTTPMethod = self.requestMethod
 
         return request
