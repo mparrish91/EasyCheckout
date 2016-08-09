@@ -1,14 +1,14 @@
 //
-//  ECCollectionViewCell.swift
+//  ECInvoiceTableViewCell.swift
 //  EasyCheckout
 //
-//  Created by parry on 8/6/16.
+//  Created by parry on 8/8/16.
 //  Copyright © 2016 MCP. All rights reserved.
 //
 
 import UIKit
 
-final class ECCollectionViewCell: UICollectionViewCell {
+final class ECInvoiceTableViewCell: UITableViewCell {
 
     var photoImageView: UIImageView
     var photoImageUrl: String? {
@@ -20,19 +20,36 @@ final class ECCollectionViewCell: UICollectionViewCell {
 
                 }
             }
-            
+
         }
     }
 
-    override init(frame: CGRect) {
+    var productLabel: UILabel
+    var costIconImageView: UIImageView
+    var costLabel: UILabel
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 
         self.photoImageView = UIImageView()
+        self.productLabel = UILabel()
+        self.costIconImageView = UIImageView()
+        self.costLabel = UILabel()
 
-          super.init(frame: frame)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
 
         contentView.addSubview(photoImageView)
+        contentView.addSubview(productLabel)
+        contentView.addSubview(costIconImageView)
+        contentView.addSubview(costLabel)
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
 
         let margins = contentView.layoutMarginsGuide
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,16 +57,11 @@ final class ECCollectionViewCell: UICollectionViewCell {
         photoImageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor, constant: 0).active = true
         photoImageView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: 0).active = true
         photoImageView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 0).active = true
-        photoImageView.contentMode = .ScaleAspectFit
-
-
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+        photoImageView.contentMode = .ScaleAspectFit    }
     
+
     
     
     
 }
+

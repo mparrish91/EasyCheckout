@@ -18,6 +18,7 @@
 		426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083511D52FD920079EFDE /* ECInvoiceViewController.swift */; };
 		426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083531D52FDA30079EFDE /* ECSelectionViewController.swift */; };
 		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
+		42674F101D598DD4009C3BBD /* ECInvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */; };
 		42A074A21D565DB000982958 /* ECProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A11D565DB000982958 /* ECProgressView.swift */; };
 		42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A31D56773C00982958 /* ECCollectionViewCell.swift */; };
 		42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A01D55953800982958 /* EC-Bridging-Header.h */; };
@@ -64,6 +65,7 @@
 		426083511D52FD920079EFDE /* ECInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceViewController.swift; sourceTree = "<group>"; };
 		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
 		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceTableViewCell.swift; sourceTree = "<group>"; };
 		42A074A01D55953800982958 /* EC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EC-Bridging-Header.h"; sourceTree = "<group>"; };
 		42A074A11D565DB000982958 /* ECProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressView.swift; sourceTree = "<group>"; };
 		42A074A31D56773C00982958 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				426083531D52FDA30079EFDE /* ECSelectionViewController.swift */,
 				426083511D52FD920079EFDE /* ECInvoiceViewController.swift */,
 				42A074A31D56773C00982958 /* ECCollectionViewCell.swift */,
+				42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				42A074AA1D5697EF00982958 /* TAPageControl.h in Sources */,
 				42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */,
 				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
+				42674F101D598DD4009C3BBD /* ECInvoiceTableViewCell.swift in Sources */,
 				42A074A21D565DB000982958 /* ECProgressView.swift in Sources */,
 				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
 				4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */,

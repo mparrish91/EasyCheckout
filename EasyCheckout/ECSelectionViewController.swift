@@ -210,7 +210,16 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     }
 
+
+
     func onNextButtonPressed() {
+
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let index = appDelegate.nextVCIndex
+        let nextVC = appDelegate.vcArray[index]
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        appDelegate.nextVCIndex += 1
+
 
     }
 

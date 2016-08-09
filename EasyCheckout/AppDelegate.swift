@@ -13,6 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var nextVCIndex = 1
+    var vcArray = [ECSelectionViewController]()
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -22,12 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 let nav = UINavigationController()
 
+
                 //create my selectionViewControllers
                 for item in data {
                     if let selectionVC = ECSelectionViewController(item: item) {
-                        nav.viewControllers.append(selectionVC)
+                        self.vcArray.append(selectionVC)
                     }
                 }
+
+                nav.viewControllers = [self.vcArray[0]]
 
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 self.window?.rootViewController = nav
