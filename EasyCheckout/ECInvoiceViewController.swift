@@ -11,14 +11,19 @@ import UIKit
 
 final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    private var items: [ECItem]?
+    private var invoice: ECInvoice?
+
     private var itemOverviewTableView: UITableView
     private var subtotalLabel: UILabel
     private var subtotalAmountLabel: UILabel
     private var taxLabel: UILabel
     private var taxAmountLabel: UILabel
+    private var lineView: UIView
     private var totalLabel: UILabel
-    private var totalAmountLabel: UILabel
 
+    private var totalAmountLabel: UILabel
+    
     private let cellReuseIdendifier = "cell"
 
 
@@ -35,6 +40,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         self.subtotalAmountLabel = UILabel()
         self.taxLabel = UILabel()
         self.taxAmountLabel = UILabel()
+        self.lineView = UIView()
         self.totalLabel = UILabel()
         self.totalAmountLabel = UILabel()
 
@@ -46,13 +52,10 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
 
-    convenience init?(item: ECItem) {
+    convenience init?(items: [ECItem], invoice: ECInvoice ) {
         self.init()
-        self.item = item
-        //        self.progressView.count = items.count
-        //        self.progressView.createShapeLayer(items.count)
-        self.photoCollectionView.registerClass(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        loadCollectionView()
+        self.items = items
+        self.invoice = invoice
 
     }
 
@@ -71,11 +74,12 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         self.navigationItem.titleView = navLabel
         navLabel.textAlignment = NSTextAlignment.Center
 
-        let nextButtonImage = UIImage(named: "done")!
-        let nextButton = UIButton(type: .Custom)
-        nextButton.frame = CGRectMake(0,0,40,19)
-        nextButton.setImage(nextButtonImage, forState: .Normal)
-        nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        let doneButtonImage = UIImage(named: "done")!
+        let dponeButton = UIButton(type: .Custom)
+        dponeButton.frame = CGRectMake(0,0,40,19)
+        dponeButton.setImage(doneButtonImage, forState: .Normal)
+
+        lineView.backgroundColor = UIColor.blackColor()
 
 
         tableView.registerClass(MyCustomCell.self, forCellReuseIdentifier: cellReuseIdendifier)
@@ -84,24 +88,41 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         tableView.delegate = self
     }
 
+    override func loadView() {
+        self.view = UIView()
+        self.view.addSubview(itemOverviewTableView)
+        self.view.addSubview(subtotalLabel)
+        self.view.addSubview(subtotalAmountLabel)
+        self.view.addSubview(taxLabel)
+        self.view.addSubview(taxAmountLabel)
+        self.view.addSubview(lineView)
+        self.view.addSubview(totalLabel)
+        self.view.addSubview(totalAmountLabel)
+
+    }
+
 
     // MARK: UITableView
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return items.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdendifier, forIndexPath: indexPath) as! ECInvoiceTableViewCell
-        cell.myLabel.text = myArray[indexPath.row]
-        
+        cell.photoImageUrl = items[indexPath.row].imageUrl
+        cell.productLabel.text = items[indexPath.row].name
+        cell.costLabel.text = items[indexPath.row].price
+
+
+
         return cell
     }
-}
+
     
     
-    
+
     
     
     
