@@ -13,14 +13,12 @@ final class ECCollectionViewCell: UICollectionViewCell {
     var photoImageView: UIImageView
     var photoImageUrl: String? {
         didSet{
+            print(photoImageUrl)
             if let url = NSURL(string: photoImageUrl!){
-                if let data = NSData(contentsOfURL: url) {
-                    self.photoImageView.image = UIImage(named: "placeholder")
-                    self.photoImageView.downloadImageFrom(link: photoImageUrl!, contentMode: UIViewContentMode.ScaleAspectFit)
-
-                }
+                self.photoImageView.image = UIImage(named: "placeholder")
+                self.photoImageView.downloadImageFrom(link: photoImageUrl!, contentMode: UIViewContentMode.ScaleAspectFit)
             }
-            
+
         }
     }
 

@@ -159,7 +159,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         //Nav Bar
         let navString = "My Items"
         let navLabel = UILabel()
-        navLabel.backgroundColor = UIColor(netHex: 0x4A4A4A)
+        navLabel.textColor = UIColor(netHex: 0x4A4A4A)
         navLabel.attributedText = returnNavTitleString(navString)
         navLabel.sizeToFit()
         self.navigationItem.titleView = navLabel
