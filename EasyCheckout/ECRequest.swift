@@ -34,9 +34,6 @@ final class ECRequest: NSObject {
         let preparedURL = NSURL(string: preparedURLString)
         let request = NSMutableURLRequest(URL: preparedURL!)
         request.HTTPMethod = self.requestMethod
-        print(request.HTTPMethod)
-
-
 
         if requestMethod == "PUT" {
             do {
@@ -45,14 +42,11 @@ final class ECRequest: NSObject {
                 request.HTTPBody = jsonData
                 return request
 
-
             } catch let error as NSError {
                 print(error)
             }
             
         }
-        
-        
 
         return request
         
@@ -62,12 +56,10 @@ final class ECRequest: NSObject {
     func performRequestWithHandler(handler: ECRequestHandler) {
 
         let request = preparedURLRequest()
-        print(request)
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         session.dataTaskWithRequest(request) {(responseData, response, error) ->  Void in
             if let data = responseData {
                 let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
-                print(json)
                 if let response = response as? NSHTTPURLResponse where 200...299 ~= response.statusCode {
                     handler(success: true, object: json)
                 }else {

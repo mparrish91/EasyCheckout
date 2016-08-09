@@ -10,7 +10,7 @@ import Foundation
 
 final class ECItem: NSObject {
 
-    private var id: String?
+    var id: String?
     var name : String?
     var brand : String?
     var price : String?

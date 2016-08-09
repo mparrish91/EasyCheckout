@@ -11,6 +11,7 @@ import Foundation
 
 final class ECNetworkingHelper: NSObject {
     static let sharedInstance = ECNetworkingHelper()
+    var keptItemsArray = [String]()
 
 func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Void) -> Void {
 
@@ -27,32 +28,25 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
 
                 if success {
                     if let itemArray = object?["shipment_items"] as? [[String:AnyObject]]{
-
                         for dic in itemArray {
                             let newResponseObject = ECItem(dictionary: dic)
                             objectArray.append(newResponseObject)
-
                         }
-
                         if itemArray.isEmpty == false {
                             completionHandler(data: objectArray, error: nil)
                         }
                     }else {
                         print("error retrieving fix")
-
                     }
                 }else {
                     print("error performing request")
                     NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
-
                 }
-
         })
     }
-    
     }
-
-
+    
+    
 
 
 
