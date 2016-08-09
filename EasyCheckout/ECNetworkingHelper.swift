@@ -18,7 +18,7 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
 
     if let requestUrl = newURL {
 
-        let getRequest = ECRequest(requestMethod: "GET", url: requestUrl)
+        let getRequest = ECRequest(requestMethod: "GET", url: requestUrl, params: [:])
 
         getRequest.performRequestWithHandler(
             { (success: Bool, object: AnyObject?) -> Void in
@@ -65,7 +65,7 @@ func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvo
 
     if let requestUrl = newURL {
 
-        let putRequest = ECRequest(requestMethod: "PUT", url: requestUrl)
+        let putRequest = ECRequest(requestMethod: "PUT", url: requestUrl, params: params)
 
         putRequest.performRequestWithHandler(
             { (success: Bool, object: AnyObject?) -> Void in
@@ -100,7 +100,7 @@ func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvo
 
 
 
-}
+
 
 
 

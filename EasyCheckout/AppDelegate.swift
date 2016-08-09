@@ -19,27 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
+//        ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
+//
+//            dispatch_async(dispatch_get_main_queue(), {
+//
+//                let nav = UINavigationController()
+//
+//
+//                //create my selectionViewControllers
+//                for item in data {
+//                    if let selectionVC = ECSelectionViewController(item: item) {
+//                        self.vcArray.append(selectionVC)
+//                    }
+//                }
+//
+//                nav.viewControllers = [self.vcArray[0]]
+//
+//                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//                self.window?.rootViewController = nav
+//                self.window?.makeKeyAndVisible()
+//            })
+//        }
 
-            dispatch_async(dispatch_get_main_queue(), {
 
-                let nav = UINavigationController()
+        ECNetworkingHelper.sharedInstance.updateCurrentFix(["28008527", "28008523"], completionHandler: { (data, error) in
 
-
-                //create my selectionViewControllers
-                for item in data {
-                    if let selectionVC = ECSelectionViewController(item: item) {
-                        self.vcArray.append(selectionVC)
-                    }
-                }
-
-                nav.viewControllers = [self.vcArray[0]]
-
-                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                self.window?.rootViewController = nav
-                self.window?.makeKeyAndVisible()
-            })
-        }
+            print(data)
+            print(error)
+            
+        })
+        
         return true
     }
 

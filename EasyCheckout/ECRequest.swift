@@ -33,38 +33,41 @@ final class ECRequest: NSObject {
         let preparedURLString = self.URL.absoluteString
         let preparedURL = NSURL(string: preparedURLString)
         let request = NSMutableURLRequest(URL: preparedURL!)
+        request.HTTPMethod = self.requestMethod
+        print(request.HTTPMethod)
 
-        //try this if not, convert to raw json/ then set the body
-//        let data = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
-//        let string = NSString(data: data, encoding: NSUTF8StringEncoding)
+
 
         if requestMethod == "PUT" {
-            var paramString = ""
-            for (key, value) in params {
-                let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
-                let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
-                paramString += "\(escapedKey)=\(escapedValue)&"
+            do {
+                let jsonData = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
+                // here "jsonData" is the dictionary encoded in JSON data
+                request.HTTPBody = jsonData
+                return request
 
-                request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+
+            } catch let error as NSError {
+                print(error)
             }
-            return request
+            
         }
-
-
-        request.HTTPMethod = self.requestMethod
+        
+        
 
         return request
-
-
+        
+        
     }
 
     func performRequestWithHandler(handler: ECRequestHandler) {
 
         let request = preparedURLRequest()
+        print(request)
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         session.dataTaskWithRequest(request) {(responseData, response, error) ->  Void in
             if let data = responseData {
                 let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
+                print(json)
                 if let response = response as? NSHTTPURLResponse where 200...299 ~= response.statusCode {
                     handler(success: true, object: json)
                 }else {
