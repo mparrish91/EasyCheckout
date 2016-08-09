@@ -236,11 +236,15 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
                     }
                 })
             })
+        }else {
+
+            //push next selection
+            let nextVC = appDelegate.vcArray[index]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+            appDelegate.nextVCIndex += 1
+
         }
 
-        let nextVC = appDelegate.vcArray[index]
-        self.navigationController?.pushViewController(nextVC, animated: true)
-        appDelegate.nextVCIndex += 1
 
 
     }
