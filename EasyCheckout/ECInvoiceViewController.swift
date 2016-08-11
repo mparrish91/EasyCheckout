@@ -129,6 +129,11 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         confirmButton.layer.cornerRadius = 25
         confirmButton.layer.shadowOpacity = 0.3
 
+        self.itemOverviewTableView.separatorColor = UIColor(netHex: 0xEDEDED)
+        self.itemOverviewTableView.separatorInset = UIEdgeInsetsZero
+        self.itemOverviewTableView.layoutMargins = UIEdgeInsetsZero
+
+
 
         setConstraints()
 
@@ -169,7 +174,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
             let item = fix[indexPath.row] as ECItem
             cell.photoImageUrl = item.imageUrl
             cell.productLabel.text = item.name
-            cell.costLabel.text = item.price
+            cell.costLabel.text = item.price! + "0"
         }
 
         return cell
