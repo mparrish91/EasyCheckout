@@ -68,6 +68,8 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.whiteColor()
+
         //Nav Bar
         let navString = "Checkout"
         let navLabel = UILabel()
@@ -135,13 +137,15 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     override func loadView() {
         self.view = UIView()
         self.view.addSubview(itemOverviewTableView)
-        self.view.addSubview(subtotalLabel)
-        self.view.addSubview(subtotalAmountLabel)
-        self.view.addSubview(taxLabel)
-        self.view.addSubview(taxAmountLabel)
-        self.view.addSubview(lineView)
-        self.view.addSubview(totalLabel)
-        self.view.addSubview(totalAmountLabel)
+        view.bringSubviewToFront(itemOverviewTableView)
+
+//        self.view.addSubview(subtotalLabel)
+//        self.view.addSubview(subtotalAmountLabel)
+//        self.view.addSubview(taxLabel)
+//        self.view.addSubview(taxAmountLabel)
+//        self.view.addSubview(lineView)
+//        self.view.addSubview(totalLabel)
+//        self.view.addSubview(totalAmountLabel)
 
     }
 
@@ -168,9 +172,6 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
             cell.costLabel.text = item.price
         }
 
-
-
-
         return cell
     }
 
@@ -187,49 +188,51 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         itemOverviewTableView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
         itemOverviewTableView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
         itemOverviewTableView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        itemOverviewTableView.bottomAnchor.constraintEqualToAnchor(subtotalAmountLabel.topAnchor, constant: 100).active = true
+        itemOverviewTableView.heightAnchor.constraintEqualToAnchor(nil, constant: 300).active = true
 
-        subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtotalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
-        subtotalLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
+//        itemOverviewTableView.bottomAnchor.constraintEqualToAnchor(subtotalAmountLabel.topAnchor, constant: 100).active = true
 
+//        subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
+//        subtotalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+//        subtotalLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
+//
+//
+//        subtotalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+//        subtotalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+//        subtotalAmountLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
+//
+//
+//        taxLabel.translatesAutoresizingMaskIntoConstraints = false
+//        taxLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+//        taxLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
+//
+//
+//        taxAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+//        taxAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+//        taxAmountLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
+//
+//        lineView.translatesAutoresizingMaskIntoConstraints = false
+//        lineView.topAnchor.constraintEqualToAnchor(taxAmountLabel.bottomAnchor, constant: 10).active = true
+//        lineView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
+//        lineView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+//        lineView.heightAnchor.constraintEqualToAnchor(nil, constant: 1).active = true
+//
+//        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+//        totalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
+//        totalLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
+//
+//        totalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+//        totalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+//        totalAmountLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
+//
+//
+//        confirmButton.translatesAutoresizingMaskIntoConstraints = false
+//        confirmButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
+//        confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
+//        confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
+//        confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+//        
 
-        subtotalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtotalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        subtotalAmountLabel.bottomAnchor.constraintEqualToAnchor(taxAmountLabel.topAnchor, constant: 10).active = true
-
-
-        taxLabel.translatesAutoresizingMaskIntoConstraints = false
-        taxLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
-        taxLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
-
-
-        taxAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        taxAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        taxAmountLabel.bottomAnchor.constraintEqualToAnchor(lineView.topAnchor, constant: 10).active = true
-
-        lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.topAnchor.constraintEqualToAnchor(taxAmountLabel.bottomAnchor, constant: 10).active = true
-        lineView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        lineView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        lineView.heightAnchor.constraintEqualToAnchor(nil, constant: 1).active = true
-
-        totalLabel.translatesAutoresizingMaskIntoConstraints = false
-        totalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
-        totalLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
-
-        totalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        totalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        totalAmountLabel.bottomAnchor.constraintEqualToAnchor(confirmButton.topAnchor, constant: 10).active = true
-
-
-        confirmButton.translatesAutoresizingMaskIntoConstraints = false
-        confirmButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
-        confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
-        confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-        
-        
         
     }
 

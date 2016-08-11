@@ -225,11 +225,12 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let index = appDelegate.nextVCIndex
-        if index > appDelegate.vcArray.count {
+        let keptItems = ECNetworkingHelper.sharedInstance.keptItemsArray
+        if index == appDelegate.vcArray.count {
             //fetch invoice
             //present invoice VC
 
-            ECNetworkingHelper.sharedInstance.updateCurrentFix(["28008527", "28008523"], completionHandler: { (data, error) in
+            ECNetworkingHelper.sharedInstance.updateCurrentFix(keptItems, completionHandler: { (data, error) in
                 dispatch_async(dispatch_get_main_queue(), {
                     if let invoiceVC = ECInvoiceViewController(items: appDelegate.items, invoice: data) {
                         self.navigationController?.pushViewController(invoiceVC, animated: true)
