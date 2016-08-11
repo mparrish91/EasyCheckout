@@ -67,7 +67,9 @@ final class ECProgressView: UIView {
 
             }else {
                 layer.path = UIBezierPath(roundedRect: CGRect(x: 0 + (newSingleProgressLength + gapLength), y: 0, width: staticWidth, height: self.frame.height), cornerRadius: 1).CGPath
-                newSingleProgressLength += (newSingleProgressLength + gapLength)
+                newSingleProgressLength += (staticWidth + gapLength)
+                print(newSingleProgressLength)
+                print(newSingleProgressLength)
             }
 
             layer.fillColor = UIColor(netHex:0xD8D8D8).CGColor
