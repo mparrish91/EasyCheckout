@@ -52,9 +52,8 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         let margins = contentView.layoutMarginsGuide
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
-        photoImageView.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+        photoImageView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
         photoImageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor, constant: 5).active = true
-        photoImageView.trailingAnchor.constraintEqualToAnchor(productLabel.leadingAnchor, constant: 10).active = true
         photoImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 34).active = true
         photoImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 52).active = true
         photoImageView.contentMode = .ScaleAspectFit
@@ -62,8 +61,8 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
         productLabel.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: 5).active = true
-        productLabel.leadingAnchor.constraintEqualToAnchor(photoImageView.leadingAnchor, constant: 10).active = true
-        productLabel.trailingAnchor.constraintEqualToAnchor(costIconImageView.leadingAnchor, constant: 80).active = true
+        productLabel.leadingAnchor.constraintEqualToAnchor(photoImageView.trailingAnchor, constant: 20).active = true
+//        productLabel.trailingAnchor.constraintEqualToAnchor(costIconImageView.leadingAnchor, constant: 80).active = true
         productLabel.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 5).active = true
 
         productLabel.textAlignment = .Left
