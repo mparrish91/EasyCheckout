@@ -56,12 +56,16 @@ final class ECProgressView: UIView {
 
         print(newSingleProgressLength)
         print(self.frame.height)
+        print(self.frame.origin.x)
+        print(self.frame.origin.y)
+
+
 
 //        print(count)
 
         let layer = CAShapeLayer()
 //        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: 160, height: 160), cornerRadius: 50).CGPath
-        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
+        layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
 
         layer.fillColor = UIColor.redColor().CGColor
         self.layer.addSublayer(layer)
@@ -120,11 +124,10 @@ final class ECProgressView: UIView {
 
     override func layoutSubviews() {
 
-        for layer in layerArray {
-            self.layer.addSublayer(layer)
+        print(self.frame.height)
+        createShapeLayer(count)
 
 
-        }
 
     }
         
