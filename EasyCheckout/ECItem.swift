@@ -22,7 +22,9 @@ final class ECItem: NSObject {
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-        id = String(dictionary["id"])
+        if let idNumber = dictionary["id"] as? Int {
+            id = String(idNumber)
+        }
         name = dictionary["name"] as? String
         price = dictionary["price"] as? String
         brand = dictionary["brand"] as? String

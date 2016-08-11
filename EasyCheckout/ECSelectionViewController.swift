@@ -214,18 +214,11 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
     func onKeepButtonPressed() {
-        if let itm = item {
-            if let id = itm.id{
-                print(id)
-                ECNetworkingHelper.sharedInstance.keptItemsArray.append(id)
+        if let id = item.id {
+            ECNetworkingHelper.sharedInstance.keptItemIDs.append(id)
+            ECNetworkingHelper.sharedInstance.keptItemsArray.append(item)
 
-
-            }
         }
-//        if let id = item.id {
-//            print(id)
-//            ECNetworkingHelper.sharedInstance.keptItemsArray.append(id)
-//        }
         let alertController = UIAlertController(title: "", message: "Item added to cart :)", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -238,15 +231,15 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let index = appDelegate.nextVCIndex
-        let keptItems = ECNetworkingHelper.sharedInstance.keptItemsArray
-        print(keptItems)
+        let keptItems = ECNetworkingHelper.sharedInstance.keptItemIDs
+        let items = ECNetworkingHelper.sharedInstance.keptItemsArray
         if index == appDelegate.vcArray.count {
             //fetch invoice
             //present invoice VC
 
             ECNetworkingHelper.sharedInstance.updateCurrentFix(keptItems, completionHandler: { (data, error) in
                 dispatch_async(dispatch_get_main_queue(), {
-                    if let invoiceVC = ECInvoiceViewController(items: appDelegate.items, invoice: data) {
+                    if let invoiceVC = ECInvoiceViewController(items: items , invoice: data) {
                         self.navigationController?.pushViewController(invoiceVC, animated: true)
                     }
                 })
@@ -325,18 +318,16 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
         productLabel.centerYAnchor.constraintEqualToAnchor(productIconImageView.centerYAnchor).active = true
-        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.leadingAnchor, constant: 5).active = true
-        productLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        productLabel.textAlignment = .Center
+        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.trailingAnchor, constant: 5).active = true
+        productLabel.textAlignment = .Left
         productLabel.numberOfLines = 2
         productLabel.font = UIFont(name: "Avenir-Book", size: 18)
         productLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
         brandLabel.translatesAutoresizingMaskIntoConstraints = false
         brandLabel.centerYAnchor.constraintEqualToAnchor(brandIconImageView.centerYAnchor).active = true
-        brandLabel.leadingAnchor.constraintEqualToAnchor(brandIconImageView.leadingAnchor, constant: 5).active = true
-        brandLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        brandLabel.textAlignment = .Center
+        brandLabel.leadingAnchor.constraintEqualToAnchor(brandIconImageView.trailingAnchor, constant: 5).active = true
+        brandLabel.textAlignment = .Left
         brandLabel.numberOfLines = 1
         brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
         brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
@@ -344,9 +335,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         costLabel.translatesAutoresizingMaskIntoConstraints = false
         costLabel.centerYAnchor.constraintEqualToAnchor(costIconImageView.centerYAnchor).active = true
-        costLabel.leadingAnchor.constraintEqualToAnchor(costIconImageView.leadingAnchor, constant: 5).active = true
-        costLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
-        costLabel.textAlignment = .Center
+        costLabel.leadingAnchor.constraintEqualToAnchor(costIconImageView.trailingAnchor, constant: 5).active = true
+        costLabel.textAlignment = .Left
         costLabel.numberOfLines = 1
         costLabel.font = UIFont(name: "Avenir-Book", size: 18)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)

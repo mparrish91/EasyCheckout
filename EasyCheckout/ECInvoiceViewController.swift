@@ -101,11 +101,11 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         subtotalAmountLabel.textAlignment = .Center
         subtotalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         subtotalAmountLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        if let receiept = invoice {
-            if let sub = receiept.subtotal {
-                subtotalAmountLabel.text = sub
-            }
+        if let sub = invoice?.subtotal {
+            subtotalAmountLabel.text = String(format: "%.02f", sub)
+
         }
+
 
 
         taxLabel.textAlignment = .Center
@@ -117,11 +117,8 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         taxAmountLabel.textAlignment = .Center
         taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         taxAmountLabel.textColor = UIColor.blackColor()
-        if let receiept = invoice {
-            if let tx = receiept.tax {
-                taxAmountLabel.text = tx
-            }
-        }
+        taxAmountLabel.text = invoice?.tax
+
 
         totalLabel.textAlignment = .Center
         totalLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -132,11 +129,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         totalAmountLabel.textAlignment = .Center
         totalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         totalAmountLabel.textColor = UIColor.blackColor()
-        if let receiept = invoice {
-            if let tot = receiept.total {
-                totalAmountLabel.text = tot
-            }
-        }
+        totalAmountLabel.text = invoice?.total
+
+
 
         confirmButton.setTitle("Confirm", forState: .Normal)
         confirmButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
@@ -154,6 +149,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         self.itemOverviewTableView.separatorInset = UIEdgeInsetsZero
         self.itemOverviewTableView.layoutMargins = UIEdgeInsetsZero
         self.itemOverviewTableView.rowHeight = 60
+
+        self.navigationItem.hidesBackButton = true
+
 
 
 

@@ -11,7 +11,9 @@ import Foundation
 
 final class ECNetworkingHelper: NSObject {
     static let sharedInstance = ECNetworkingHelper()
-    var keptItemsArray = [String]()
+    var keptItemIDs = [String]()
+    var keptItemsArray = [ECItem]()
+
 
 func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Void) -> Void {
 

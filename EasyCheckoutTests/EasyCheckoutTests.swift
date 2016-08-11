@@ -32,5 +32,41 @@ class EasyCheckoutTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
+
+    //Mark: User needs a fix
+
+    //testFetch function
+
+
+
+
+
+
+
+    //Mark: User needs to be able to modify a fix
+
+    //test UI - view/ selct buttons
+
+    //https://github.com/joemasilotti/UI-Testing-Cheat-Sheet
+
+
+
+
+
+
+
+    //Mark: User needs to be able to view invoice
+
+    //test UI - view
+    // users modified fix needs to be saved
+
+
+
+
+
+
+
+
+
 }
