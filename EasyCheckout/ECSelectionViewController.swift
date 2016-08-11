@@ -82,7 +82,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
             costLabel.text = item.price! + "0"
             cell.photoImageUrl = item.imageUrl
 
-
             return cell
         }else {
             let cell = UICollectionViewCell()
@@ -177,6 +176,10 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
 
 
+        self.navigationItem.hidesBackButton = true
+
+        //increment progress count (users is moving through cart)
+//        self.progressView.updateView()
 
 
 
@@ -209,10 +212,18 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
     func onKeepButtonPressed() {
+        if let itm = item {
+            if let id = itm.id{
+                print(id)
+                ECNetworkingHelper.sharedInstance.keptItemsArray.append(id)
 
-        if let id = item.id {
-            ECNetworkingHelper.sharedInstance.keptItemsArray.append(id)
+
+            }
         }
+//        if let id = item.id {
+//            print(id)
+//            ECNetworkingHelper.sharedInstance.keptItemsArray.append(id)
+//        }
         let alertController = UIAlertController(title: "", message: "Item added to cart :)", preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -226,6 +237,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let index = appDelegate.nextVCIndex
         let keptItems = ECNetworkingHelper.sharedInstance.keptItemsArray
+        print(keptItems)
         if index == appDelegate.vcArray.count {
             //fetch invoice
             //present invoice VC
