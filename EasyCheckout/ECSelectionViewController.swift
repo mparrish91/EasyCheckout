@@ -316,7 +316,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
         progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 80).active = true
         progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
-        progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 6).active = true
+        progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 4).active = true
 
 
         // FIXME: Why is this negative, its working for now
