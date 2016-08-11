@@ -97,27 +97,18 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
     func loadCollectionView() {
-
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
-
-
         photoCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-
         photoCollectionView.frame = self.view.frame
         photoCollectionView.backgroundColor = .whiteColor()
-//        photoCollectionView.alwaysBounceVertical = true
-//        photoCollectionView.bounces = true
-
-//        photoCollectionView.scrollEnabled = true
         photoCollectionView.showsVerticalScrollIndicator = false
-
 
     }
 
-    // MARK: UIViewController
 
+
+    // MARK: UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,9 +116,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.title = "My Items"
         view.backgroundColor = UIColor.whiteColor()
 
-//        progressView.backgroundColor = .yellowColor()
 
-        self.setConstraints()
+        setConstraints()
 
 
         cartLabel.text = "My Cart"
@@ -135,10 +125,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         cartLabel.textColor = UIColor(netHex: 0xF7B445)
 
 
-        self.pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-        self.pageControl.currentDotImage = UIImage(named: "oval22Copy9")
-        self.pageControl.dotImage = UIImage(named: "oval22Copy8")
-
+        pageControl.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+        pageControl.currentDotImage = UIImage(named: "oval22Copy9")
+        pageControl.dotImage = UIImage(named: "oval22Copy8")
 
         keepButton.setTitle("Keep :)", forState: .Normal)
         keepButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
@@ -151,9 +140,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         keepButton.layer.shadowRadius = 5
         keepButton.layer.cornerRadius = 25
         keepButton.layer.shadowOpacity = 0.3
-
-
-
         keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
 
 
@@ -166,35 +152,23 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.navigationItem.titleView = navLabel
         navLabel.textAlignment = NSTextAlignment.Center
 
-
-
         let nextButtonImage = UIImage(named: "next")!
         let nextButton = UIButton(type: .Custom)
         nextButton.frame = CGRectMake(0,0,40,19)
         nextButton.setImage(nextButtonImage, forState: .Normal)
         nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-
         let nextButtonItem = UIBarButtonItem(customView: nextButton)
-
         self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
-
-
-
         self.navigationItem.hidesBackButton = true
 
 
+        //enable progress view once Data has loaded
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ECSelectionViewController.enableProgressView), name: "dataLoaded", object: nil)
-
-
-
-
-
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        //        PageControl
         self.pageControl.numberOfPages = 4
 
 
@@ -269,9 +243,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
             let nextVC = appDelegate.vcArray[index]
             self.navigationController?.pushViewController(nextVC, animated: true)
             appDelegate.nextVCIndex += 1
-
         }
-
     }
 
 
@@ -294,7 +266,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     func setConstraints() {
         let margins = view.layoutMarginsGuide
 
-
         photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
         photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
         photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
@@ -310,18 +281,14 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: -5).active = true
         cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
 
-
 //        center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
         progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 80).active = true
         progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
         progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 4).active = true
-
-
         // FIXME: Why is this negative, its working for now
         progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -10).active = true
-
 
         productIconImageView.translatesAutoresizingMaskIntoConstraints = false
         productIconImageView.topAnchor.constraintEqualToAnchor(progressView.bottomAnchor, constant: 20).active = true
@@ -363,7 +330,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
         brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
-
         costLabel.translatesAutoresizingMaskIntoConstraints = false
         costLabel.centerYAnchor.constraintEqualToAnchor(costIconImageView.centerYAnchor).active = true
         costLabel.leadingAnchor.constraintEqualToAnchor(costIconImageView.trailingAnchor, constant: 5).active = true
@@ -372,17 +338,14 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         costLabel.font = UIFont(name: "Avenir-Book", size: 18)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
-        
-
         keepButton.translatesAutoresizingMaskIntoConstraints = false
         keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
         keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
         keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
         keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
 
-
-
     }
+
 
 
     func returnNavTitleString(stringValue: String) -> NSAttributedString {
@@ -390,10 +353,6 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         return newString
     }
 
-    
-    
-    
-    
     
     
 }

@@ -44,27 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
 
-//                ECNetworkingHelper.sharedInstance.fetchCurrentFix { (data, error) in
-//
-//                    self.items = data
-//        }
-
-
-
-
-//        ECNetworkingHelper.sharedInstance.updateCurrentFix(["28008527", "28008523"], completionHandler: { (data, error) in
-//            dispatch_async(dispatch_get_main_queue(), {
-//                if let invoiceVC = ECInvoiceViewController(items: self.items, invoice: data) {
-//                    let nav = UINavigationController()
-//                    nav.viewControllers = [invoiceVC]
-//
-//                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//                    self.window?.rootViewController = nav
-//                    self.window?.makeKeyAndVisible()
-//                }
-//            })
-//        })
-
         return true
     }
 

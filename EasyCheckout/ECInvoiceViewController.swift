@@ -23,13 +23,8 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     private var totalLabel: UILabel
     private var confirmButton: UIButton
 
-
     private var totalAmountLabel: UILabel
-    
     private let cellReuseIdendifier = "cell"
-
-
-
 
     required convenience init?(coder aDecoder: NSCoder) {
         self.init(aDecoder)
@@ -87,16 +82,13 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
 
         itemOverviewTableView.registerClass(ECInvoiceTableViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
-
         itemOverviewTableView.dataSource = self
         itemOverviewTableView.delegate = self
-
 
         subtotalLabel.textAlignment = .Center
         subtotalLabel.font = UIFont(name: "Avenir-Book", size: 12)
         subtotalLabel.textColor = UIColor(netHex: 0x9B9B9B)
         subtotalLabel.text = "Subtotal"
-
 
         subtotalAmountLabel.textAlignment = .Center
         subtotalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -106,13 +98,10 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
         }
 
-
-
         taxLabel.textAlignment = .Center
         taxLabel.font = UIFont(name: "Avenir-Book", size: 12)
         taxLabel.textColor = UIColor.blackColor()
         taxLabel.text = "Tax"
-
 
         taxAmountLabel.textAlignment = .Center
         taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -122,12 +111,10 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
         }
 
-
         totalLabel.textAlignment = .Center
         totalLabel.font = UIFont(name: "Avenir-Book", size: 12)
         totalLabel.textColor = UIColor.blackColor()
         totalLabel.text = "Total"
-
 
         totalAmountLabel.textAlignment = .Center
         totalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -137,8 +124,6 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
             totalAmountLabel.text = String(format: "%.02f", tl)
 
         }
-
-
 
         confirmButton.setTitle("Confirm", forState: .Normal)
         confirmButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
@@ -152,15 +137,12 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         confirmButton.layer.cornerRadius = 25
         confirmButton.layer.shadowOpacity = 0.3
 
-        self.itemOverviewTableView.separatorColor = UIColor(netHex: 0xEDEDED)
-        self.itemOverviewTableView.separatorInset = UIEdgeInsetsZero
-        self.itemOverviewTableView.layoutMargins = UIEdgeInsetsZero
-        self.itemOverviewTableView.rowHeight = 60
+        itemOverviewTableView.separatorColor = UIColor(netHex: 0xEDEDED)
+        itemOverviewTableView.separatorInset = UIEdgeInsetsZero
+        itemOverviewTableView.layoutMargins = UIEdgeInsetsZero
+        itemOverviewTableView.rowHeight = 60
 
         self.navigationItem.hidesBackButton = true
-
-
-
 
         setConstraints()
 
@@ -169,8 +151,6 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     override func loadView() {
         self.view = UIView()
         self.view.addSubview(itemOverviewTableView)
-        view.bringSubviewToFront(itemOverviewTableView)
-
         self.view.addSubview(subtotalLabel)
         self.view.addSubview(subtotalAmountLabel)
         self.view.addSubview(taxLabel)
@@ -259,9 +239,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
         confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
         confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-        
 
-        
     }
 
 
@@ -271,12 +249,4 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     }
 
 
-
-
-
-
-
-    
-    
-    
 }

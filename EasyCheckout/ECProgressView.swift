@@ -77,7 +77,8 @@ final class ECProgressView: UIView {
 
             layerArray.append(layer)
         }
-        let layer = layerArray[coloredUpToIndex]
+        print(layerArray)
+        let layer = layerArray[1]
         layer.fillColor = UIColor(netHex:0xF7B445).CGColor
 
 
@@ -103,7 +104,7 @@ final class ECProgressView: UIView {
 
         UIView.animateWithDuration(0.5, delay: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
 
-            layer.fillColor = UIColor(netHex:0xF7B445).CGColor
+            layer.backgroundColor = UIColor(netHex:0xF7B445).CGColor
 
 
             }, completion: { (finished: Bool) -> Void in
