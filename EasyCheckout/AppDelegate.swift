@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
 
                 nav.viewControllers = [self.vcArray[0]]
+                NSNotificationCenter.defaultCenter().postNotificationName("dataLoaded", object: nil)
+
 
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 self.window?.rootViewController = nav

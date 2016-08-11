@@ -15,7 +15,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     private var item: ECItem
     private var photoCollectionView: UICollectionView
     private var pageControl: TAPageControl
-    private var progressView: UIView
+    private var progressView: ECProgressView
     private var cartLabel: UILabel
 
     private var productIconImageView: UIImageView
@@ -37,7 +37,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.item = ECItem()
         self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
         self.pageControl = TAPageControl()
-        self.progressView = UIView()
+        self.progressView = ECProgressView()
         self.cartLabel = UILabel()
         self.productIconImageView = UIImageView()
         self.brandIconImageView = UIImageView()
@@ -60,8 +60,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     convenience init?(item: ECItem) {
         self.init()
         self.item = item
-//        self.progressView.count = items.count
-//        self.progressView.createShapeLayer(items.count)
+
         self.photoCollectionView.registerClass(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         loadCollectionView()
 
@@ -126,7 +125,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.title = "My Items"
         view.backgroundColor = UIColor.whiteColor()
 
-        progressView.backgroundColor = .yellowColor()
+//        progressView.backgroundColor = .yellowColor()
 
         self.setConstraints()
 
@@ -183,8 +182,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         self.navigationItem.hidesBackButton = true
 
-        //increment progress count (users is moving through cart)
-//        self.progressView.updateView()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ECSelectionViewController.enableProgressView), name: "dataLoaded", object: nil)
+
 
 
 
@@ -272,10 +272,22 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         }
 
+    }
+
+
+    func enableProgressView() {
+
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let count = appDelegate.vcArray.count
+
+        self.progressView.count = count
+        self.progressView.createShapeLayer(count)
+
+        //increment progress count (users is moving through cart)
+//        self.progressView.updateView()
 
 
     }
-
 
     // MARK: AutoLayout
 

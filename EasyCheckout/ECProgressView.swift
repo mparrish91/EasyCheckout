@@ -22,7 +22,7 @@ final class ECProgressView: UIView {
         self.layerArray = [CAShapeLayer]()
         super.init(frame: frame)
 
-        self.backgroundColor = .greenColor()
+//        self.backgroundColor = .greenColor()
 
     }
 
@@ -54,27 +54,36 @@ final class ECProgressView: UIView {
         //new single progress length = progress length - gap
         let newSingleProgressLength = singleProgressLength - gapLength
 
-        print(count)
+        print(newSingleProgressLength)
+        print(self.frame.height)
+
+//        print(count)
+
+        let layer = CAShapeLayer()
+//        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: 160, height: 160), cornerRadius: 50).CGPath
+        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
+
+        layer.fillColor = UIColor.redColor().CGColor
+        self.layer.addSublayer(layer)
 
         //loop through the count
-        for _ in 1...count {
-            let layer = CAShapeLayer()
-            layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
+//        for _ in 1...count {
+//            let layer = CAShapeLayer()
 
-            //start at 0 for the first layer
-            if count == 0 {
-                layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
-
-            }else {
-                layer.path = UIBezierPath(roundedRect: CGRect(x: 0 + (newSingleProgressLength + gapLength), y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
-
-            }
-
-            layer.fillColor = UIColor.grayColor().CGColor
-            self.layer.addSublayer(layer)
-
-            layerArray.append(layer)
-        }
+//            //start at 0 for the first layer
+//            if count == 0 {
+//                layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
+//
+//            }else {
+//                layer.path = UIBezierPath(roundedRect: CGRect(x: 0 + (newSingleProgressLength + gapLength), y: 0, width: newSingleProgressLength, height: self.frame.height), cornerRadius: 50).CGPath
+//
+//            }
+//
+//            layer.fillColor = UIColor(netHex:0xD8D8D8).CGColor
+//            self.layer.addSublayer(layer)
+//
+//            layerArray.append(layer)
+//        }
 
         // for each draw a rectangle cashape layer
         //(keep incrementing by the x by the width + gap)
@@ -82,7 +91,6 @@ final class ECProgressView: UIView {
             //add each to the view
             //store each variable in the layerArray
 
-        print(layerArray)
 
 
     }
@@ -97,9 +105,9 @@ final class ECProgressView: UIView {
 
         //change color of the layer in animation
 
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
 
-            layer.fillColor = UIColor.yellowColor().CGColor
+            layer.fillColor = UIColor(netHex:0xF7B445).CGColor
 
 
             }, completion: { (finished: Bool) -> Void in
