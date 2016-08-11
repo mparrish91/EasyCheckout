@@ -117,7 +117,10 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         taxAmountLabel.textAlignment = .Center
         taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         taxAmountLabel.textColor = UIColor.blackColor()
-        taxAmountLabel.text = invoice?.tax
+        if let tx = invoice?.tax {
+            taxAmountLabel.text = String(format: "%.02f", tx)
+
+        }
 
 
         totalLabel.textAlignment = .Center
@@ -130,6 +133,10 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         totalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         totalAmountLabel.textColor = UIColor.blackColor()
         totalAmountLabel.text = invoice?.total
+        if let tl = invoice?.total {
+            totalAmountLabel.text = String(format: "%.02f", tl)
+
+        }
 
 
 
