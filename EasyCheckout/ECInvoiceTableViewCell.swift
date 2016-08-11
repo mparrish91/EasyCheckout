@@ -83,7 +83,6 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         costLabel.translatesAutoresizingMaskIntoConstraints = false
         costLabel.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
-//        costLabel.centerXAnchor.constraintEqualToAnchor(costIconImageView.centerXAnchor).active = true
         costLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 1).active = true
         costLabel.textAlignment = .Center
         costLabel.font = UIFont(name: "Avenir-Book", size: 12)
