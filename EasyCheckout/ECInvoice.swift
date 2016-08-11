@@ -19,9 +19,9 @@ final class ECInvoice: NSObject {
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-        subtotal = dictionary["subtotal"] as? String
-        tax = dictionary["tax"] as? String
-        total = dictionary["total"] as? String
+        subtotal = String(dictionary["subtotal"])
+        tax = String(dictionary["tax"])
+        total = String(dictionary["total"])
 
     }
 

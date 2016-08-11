@@ -69,6 +69,7 @@ func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvo
 
                 if success {
                     if let dic = object as? [String:AnyObject]{
+
                         newResponseObject = ECInvoice(dictionary: dic)
 
                         if dic.isEmpty == false {
@@ -81,8 +82,8 @@ func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvo
                     }
                 }else {
                     print("error performing request")
-                    NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
-                    
+//                    NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
+
                 }
                 
         })
