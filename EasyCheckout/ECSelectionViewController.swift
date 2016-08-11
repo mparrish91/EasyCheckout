@@ -148,7 +148,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         keepButton.titleLabel?.textColor = UIColor.whiteColor()
 
         keepButton.layer.shadowColor = UIColor.blackColor().CGColor
-        keepButton.layer.shadowOffset = CGSizeMake(5, 5)
+        keepButton.layer.shadowOffset = CGSizeMake(0,2)
         keepButton.layer.shadowRadius = 5
         keepButton.layer.cornerRadius = 25
         keepButton.layer.shadowOpacity = 0.3
@@ -167,6 +167,8 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.navigationItem.titleView = navLabel
         navLabel.textAlignment = NSTextAlignment.Center
 
+
+
         let nextButtonImage = UIImage(named: "next")!
         let nextButton = UIButton(type: .Custom)
         nextButton.frame = CGRectMake(0,0,40,19)
@@ -176,6 +178,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         let nextButtonItem = UIBarButtonItem(customView: nextButton)
 
         self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
+
 
 
         self.navigationItem.hidesBackButton = true
@@ -193,6 +196,22 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
         //        PageControl
         self.pageControl.numberOfPages = 4
+
+
+        //Changing bar button to Done to notify user
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let index = appDelegate.nextVCIndex
+        if index == appDelegate.vcArray.count {
+            let nextButtonImage = UIImage(named: "done")!
+            let nextButton = UIButton(type: .Custom)
+            nextButton.frame = CGRectMake(0,0,40,19)
+            nextButton.setImage(nextButtonImage, forState: .Normal)
+            nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+
+            let nextButtonItem = UIBarButtonItem(customView: nextButton)
+
+            self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
+        }
 
     }
 
@@ -268,7 +287,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
         photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
         photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: -5).active = true
+        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: -10).active = true
         photoCollectionView.contentMode = .ScaleAspectFit
 
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -283,7 +302,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 //        center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 50).active = true
+        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 80).active = true
         progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
         progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 6).active = true
 
