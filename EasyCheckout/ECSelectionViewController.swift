@@ -90,7 +90,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = collectionView.bounds.size
+        let width = collectionView.bounds.width * 0.8
+        let height = collectionView.bounds.height * 0.8
+        let size = CGSize(width: width, height: height) 
         return size
     }
 
