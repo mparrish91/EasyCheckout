@@ -77,14 +77,16 @@ final class ECProgressView: UIView {
 
             layerArray.append(layer)
         }
+        let layer = layerArray[coloredUpToIndex]
+        layer.fillColor = UIColor(netHex:0xF7B445).CGColor
+
+
 
 //         for each draw a rectangle cashape layer
 //        (keep incrementing by the x by the width + gap)
 //
 //            add each to the view
 //            store each variable in the layerArray
-
-
 
     }
 
@@ -94,11 +96,12 @@ final class ECProgressView: UIView {
 
         //select next layer in array
         let layer = layerArray[coloredUpToIndex]
+        print(layer)
 
 
         //change color of the layer in animation
 
-        UIView.animateWithDuration(0.5, delay: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
 
             layer.fillColor = UIColor(netHex:0xF7B445).CGColor
 
@@ -114,6 +117,7 @@ final class ECProgressView: UIView {
     override func layoutSubviews() {
 
         createShapeLayer(count)
+        updateView()
 
 
 
