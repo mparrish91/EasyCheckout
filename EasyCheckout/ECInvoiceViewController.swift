@@ -170,9 +170,11 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         self.view.addSubview(subtotalAmountLabel)
         self.view.addSubview(taxLabel)
         self.view.addSubview(taxAmountLabel)
-//        self.view.addSubview(lineView)
-//        self.view.addSubview(totalLabel)
-//        self.view.addSubview(totalAmountLabel)
+        self.view.addSubview(lineView)
+        self.view.addSubview(totalLabel)
+        self.view.addSubview(totalAmountLabel)
+        self.view.addSubview(confirmButton)
+
 
     }
 
@@ -235,8 +237,8 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.topAnchor.constraintEqualToAnchor(taxAmountLabel.bottomAnchor, constant: 10).active = true
-        lineView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        lineView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
+        lineView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 0).active = true
+        lineView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: 0).active = true
         lineView.heightAnchor.constraintEqualToAnchor(nil, constant: 1).active = true
 
         totalLabel.translatesAutoresizingMaskIntoConstraints = false
