@@ -9,7 +9,10 @@
 import XCTest
 
 class EasyCheckoutUITests: XCTestCase {
-        
+
+    var app: XCUIApplication!
+
+
     override func setUp() {
         super.setUp()
         
@@ -18,7 +21,7 @@ class EasyCheckoutUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+//        let app = XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -31,6 +34,22 @@ class EasyCheckoutUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+
+        XCTAssert(app.staticTexts["My Items"].exists)
+        XCTAssert(app.staticTexts["My Cart"].exists)
+        XCTAssert(app.staticTexts["Keep :)"].exists)
+
+
+
+        XCTAssert(app.staticTexts["Checkout"].exists)
+        XCTAssert(app.staticTexts["Subtotal"].exists)
+        XCTAssert(app.staticTexts["Tax"].exists)
+        XCTAssert(app.staticTexts["Total"].exists)
+        XCTAssert(app.staticTexts["Confirm"].exists)
+
+
+
     }
     
 }
