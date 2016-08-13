@@ -10,7 +10,9 @@ import XCTest
 
 class EasyCheckoutUITests: XCTestCase {
 
-    var app: XCUIApplication!
+
+    let app = XCUIApplication()
+
 
 
     override func setUp() {
@@ -21,8 +23,7 @@ class EasyCheckoutUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-//        let app = XCUIApplication().launch()
-
+        app.launch()
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -35,19 +36,45 @@ class EasyCheckoutUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
 
-
-        XCTAssert(app.staticTexts["My Items"].exists)
-        XCTAssert(app.staticTexts["My Cart"].exists)
-        XCTAssert(app.staticTexts["Keep :)"].exists)
+        sleep(1)
 
 
+        let button = app.buttons["Keep :)"]
+        XCTAssert(button.exists)
 
-        XCTAssert(app.staticTexts["Checkout"].exists)
-        XCTAssert(app.staticTexts["Subtotal"].exists)
-        XCTAssert(app.staticTexts["Tax"].exists)
-        XCTAssert(app.staticTexts["Total"].exists)
-        XCTAssert(app.staticTexts["Confirm"].exists)
 
+
+        sleep(1)
+
+//        //verify title
+//        XCTAssert(app.navigationBars["My Items"].exists)
+//
+////        sleep(1)
+////
+//
+//        XCTAssert(app.staticTexts["My Cart"].exists)
+        XCTAssert(app.buttons["Keep :)"].exists)
+
+//        app.buttons["Keep :)"].tap()
+//
+//        //push keep button
+//        app.alerts[""].buttons["Keep :)"].tap()
+//
+//        //assert the item has text and image have changed
+//        XCTAssert(app.navigationBars["Volleyball?"].exists)
+//
+//
+//
+//
+//
+//        //verify title
+//        XCTAssert(app.navigationBars["Checkout"].exists)
+//
+//        XCTAssert(app.staticTexts["Subtotal"].exists)
+//        XCTAssert(app.staticTexts["Tax"].exists)
+//        XCTAssert(app.staticTexts["Total"].exists)
+//        XCTAssert(app.staticTexts["Confirm"].exists)
+//
 
 
     }

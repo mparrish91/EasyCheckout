@@ -53,36 +53,21 @@ class EasyCheckoutTests: XCTestCase {
 
         networkingHelper.fetchCurrentFix { (data, error) in
 
-            XCTAssert(data == [ECItem])
+            XCTAssert(data.count > 0)
+            XCTAssert(data[0].brand == "Market & Spruce")
         }
-
     }
 
     func testUpdateFix() {
 
         networkingHelper.updateCurrentFix(keptData, completionHandler: { (data, error) in
-            XCTAssert(data == [ECInvoice])
-        }
+            XCTAssert(data.subtotal != nil)
+            XCTAssert(data.tax != nil)
+            XCTAssert(data.total != nil)
+        })
     }
 
 
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
     //other thoughts
 
