@@ -84,6 +84,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         itemOverviewTableView.registerClass(ECInvoiceTableViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         itemOverviewTableView.dataSource = self
         itemOverviewTableView.delegate = self
+        itemOverviewTableView.allowsSelection = false
+
+
 
         subtotalLabel.textAlignment = .Center
         subtotalLabel.font = UIFont(name: "Avenir-Book", size: 12)
@@ -94,7 +97,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         subtotalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         subtotalAmountLabel.textColor = UIColor(netHex: 0x9B9B9B)
         if let sub = invoice?.subtotal {
-            subtotalAmountLabel.text = String(format: "%.02f", sub)
+            if let unwrapped = returnConvertedDollarAmount(sub){
+                subtotalAmountLabel.text = unwrapped
+            }
 
         }
 
@@ -107,7 +112,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         taxAmountLabel.textColor = UIColor.blackColor()
         if let tx = invoice?.tax {
-            taxAmountLabel.text = String(format: "%.02f", tx)
+            if let unwrapped = returnConvertedDollarAmount(tx){
+                taxAmountLabel.text = unwrapped
+            }
 
         }
 
@@ -121,7 +128,9 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         totalAmountLabel.textColor = UIColor.blackColor()
         totalAmountLabel.text = invoice?.total
         if let tl = invoice?.total {
-            totalAmountLabel.text = String(format: "%.02f", tl)
+            if let unwrapped = returnConvertedDollarAmount(tl){
+                totalAmountLabel.text = unwrapped
+            }
 
         }
 
@@ -239,13 +248,27 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
         confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
         confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+        confirmButton.enabled = false
 
     }
 
 
+
+
+
+    //MARK: Helper Functions
+
     func returnNavTitleString(stringValue: String) -> NSAttributedString {
         let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.blackColor()])
         return newString
+    }
+
+    func returnConvertedDollarAmount(stringValue: String) -> String? {
+        //conversion handles all situations
+        if let convertedDouble = Double(stringValue) {
+            return String(format: "%.02f", (convertedDouble / 1.0))
+        }
+        return nil
     }
 
 

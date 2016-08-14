@@ -88,8 +88,6 @@ final class ECInvoiceTableViewCell: UITableViewCell {
         costLabel.font = UIFont(name: "Avenir-Book", size: 12)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
-
-
     }
 
 
