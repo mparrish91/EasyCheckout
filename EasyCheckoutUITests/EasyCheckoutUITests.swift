@@ -297,6 +297,73 @@ class EasyCheckoutUITests: XCTestCase {
         nextButton.tap()
 
 
+
+        //Mark: Invoice VC
+
+        //Wait for app to download data
+        sleep(5)
+
+
+        //Does Nav Bar exist
+        let navTitle = app.navigationBars["Checkout"].staticTexts["Checkout"]
+        XCTAssert(navTitle.exists)
+
+        //Does Table exist
+        let tablesQuery = app.tables
+        let firstCell = tablesQuery.staticTexts["Dorothy Layered Hammered Cuff"]
+        let second = tablesQuery.staticTexts["Black and Gold Dangle Necklace"]
+        let third = tablesQuery.staticTexts["Henry Birds on Branch Infinity Scarf"]
+        let fourth = tablesQuery.staticTexts["Corinna Striped Dolman Top"]
+        let fifth = tablesQuery.staticTexts["Anita Skinny Pant"]
+
+        XCTAssert(firstCell.exists)
+        XCTAssert(second.exists)
+        XCTAssert(third.exists)
+        XCTAssert(fourth.exists)
+        XCTAssert(fifth .exists)
+
+        //How many cells?
+        let cells = XCUIApplication().tables.cells
+        XCTAssertEqual(cells.count, 5, "found instead: \(cells.debugDescription)")
+
+        sleep(1)
+
+
+        //Tablecell imageviews and other subviews
+        let tableImage = app.tables.cells.otherElements.childrenMatchingType(.Image).element
+        XCTAssert(costIcon.exists)
+        XCTAssert(tableImage.exists)
+
+        app.tables.staticTexts["34.00"].tap()
+        app.tables.staticTexts["50.00"].tap()
+        app.tables.staticTexts["28.00"].tap()
+        app.tables.staticTexts["48.00"].tap()
+        app.tables.staticTexts["78.00"].tap()
+
+
+        //Do Total and other Lower Labels and values exist?
+        let subLabel = app.staticTexts["Subtotal"]
+        let taxLabel = app.staticTexts["Tax"]
+        let totalLabel = app.staticTexts["Total"]
+        let subAmount =  app.staticTexts["238.00"]
+        let taxAmount =  app.staticTexts["23.00"]
+        let totalAmount = app.staticTexts["261.00"]
+
+        XCTAssert(subLabel.exists)
+        XCTAssert(taxLabel.exists)
+        XCTAssert(totalLabel.exists)
+        XCTAssert(subAmount.exists)
+        XCTAssert(taxAmount.exists)
+        XCTAssert(totalAmount.exists)
+
+
+        let line = app.otherElements.containingType(.NavigationBar, identifier:"Checkout").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
+        XCTAssert(line.exists)
+
+        //Does confirm button exist
+        let confirm = app.buttons["Confirm"]
+        XCTAssert(confirm.exists)
+
     }
 //
 //    func testSelectionVCScreenOne() {
