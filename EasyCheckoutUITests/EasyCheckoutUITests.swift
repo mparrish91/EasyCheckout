@@ -26,43 +26,77 @@ class EasyCheckoutUITests: XCTestCase {
         app.launch()
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
 
-    func recordingTestExample() {
-        
+    func testSelectionVCScreenOne() {
+
+
         let app = XCUIApplication()
-        let image = app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element
-        image.tap()
-        app.staticTexts["My Cart"].tap()
-        
+
+        //Does Nav Bar exist
+        XCTAssert(app.navigationBars["My Items"].exists)
+
+        //Does Next Button exist
+        let nextButton = XCUIApplication().navigationBars["My Items"].buttons["next"]
+        XCTAssert(nextButton.exists)
+
+        //Does CollectionView Exist
         let element = app.otherElements.containingType(.NavigationBar, identifier:"My Items").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
         let collectionView = element.childrenMatchingType(.CollectionView).element
+        XCTAssert(collectionView.exists)
+
+        //Does collectionview image exist
+        let image = app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element
+        XCTAssert(image.exists)
+
+        //Scroll Collectionview?
         collectionView.tap()
-        collectionView.tap()
-        collectionView.tap()
-        element.childrenMatchingType(.Other).elementBoundByIndex(1).tap()
-        app.staticTexts["Dorothy Layered Hammered Cuff"].tap()
-        app.images["nameIcon"].tap()
-        app.images["brandIcon"].tap()
-        app.images["costIcon"].tap()
-        app.staticTexts["ZAD"].tap()
-        app.staticTexts["34.00"].tap()
-        
-        let myItemsNavigationBar = app.navigationBars["My Items"]
-        myItemsNavigationBar.staticTexts["My Items"].tap()
-        
+
+        //Does Page Control exist?
+        let pageControl = element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        XCTAssert(pageControl.exists)
+
+
+        //Do Labels and ImageViews Exit
+
+        let myCartLabel = app.staticTexts["My Cart"]
+        let progressView = element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let nameLabel = app.staticTexts["Dorothy Layered Hammered Cuff"]
+        let nameIcon = app.images["nameIcon"]
+        let brandIcon = app.images["brandIcon"]
+        let costIcon = app.images["costIcon"]
+        let brandLabel = app.staticTexts["ZAD"]
+        let costLabel = app.staticTexts["34.00"]
+
+        XCTAssert(myCartLabel.exists)
+        XCTAssert(progressView.exists)
+        XCTAssert(nameLabel.exists)
+        XCTAssert(nameIcon.exists)
+        XCTAssert(brandIcon.exists)
+        XCTAssert(costIcon.exists)
+        XCTAssert(brandLabel.exists)
+        XCTAssert(costLabel.exists)
+
+        //Keep Button exist? Is user notified?
         let keepButton = app.buttons["Keep :)"]
+        XCTAssert(keepButton.exists)
         keepButton.tap()
-        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Alert).element.tap()
-        
+
+        //Alert View??
+       let alertView = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Alert).element
+        XCTAssert(alertView.exists)
+
         let okButton = app.alerts.collectionViews.buttons["OK"]
         okButton.tap()
-        okButton.tap()
-        okButton.tap()
+
+        nextButton.tap()
+
+    }
+
+
+
+    func recordingTestExample() {
+
+
         
         let nextButton = myItemsNavigationBar.buttons["next"]
         nextButton.tap()

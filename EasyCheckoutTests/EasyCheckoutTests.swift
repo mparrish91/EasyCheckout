@@ -70,8 +70,36 @@ class EasyCheckoutTests: XCTestCase {
 
 
     //other thoughts
-
     //check to make sure dollar labels are correct format -- two zeros
+
+
+    func testDecimals() {
+        var number = "25"
+        number = String(format: "%.02f", (Double(25) / 1.0))
+        XCTAssert(number == "25.00")
+
+        number = "25.0"
+        number = String(format: "%.02f", (Double(25.0) / 1.0))
+        XCTAssert(number == "25.00")
+
+        number = "25.1"
+        number = String(format: "%.02f", (Double(25.1) / 1.0))
+        XCTAssert(number == "25.10")
+
+        number = "25.10"
+        number = String(format: "%.02f", (Double(25.10) / 1.0))
+        XCTAssert(number == "25.10")
+
+
+        number = "25.000"
+        number = String(format: "%.02f", (Double(25.000) / 1.0))
+        XCTAssert(number == "25.00")
+    }
+}
+
+
+
+
 
 
     //Mark: User needs a fix
@@ -91,7 +119,6 @@ class EasyCheckoutTests: XCTestCase {
 
 
 
-
     //Mark: User needs to be able to view invoice
 
     // Is it the proper invoice data?  (test networking put)
@@ -100,9 +127,3 @@ class EasyCheckoutTests: XCTestCase {
 
 
 
-
-
-
-
-
-}
