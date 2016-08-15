@@ -23,6 +23,7 @@
 		42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A31D56773C00982958 /* ECCollectionViewCell.swift */; };
 		42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A01D55953800982958 /* EC-Bridging-Header.h */; };
 		42A074AA1D5697EF00982958 /* TAPageControl.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A91D5697EF00982958 /* TAPageControl.h */; };
+		42CCFF841D61518E00F69F72 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCFF831D61518E00F69F72 /* Test.swift */; };
 		42DACC2E1D5834BF00348DF0 /* Bangla MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */; };
 		42DACC301D584DD400348DF0 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DACC2F1D584DD400348DF0 /* UIImageViewExtensions.swift */; };
 		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
@@ -73,6 +74,7 @@
 		42A074A11D565DB000982958 /* ECProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressView.swift; sourceTree = "<group>"; };
 		42A074A31D56773C00982958 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
 		42A074A91D5697EF00982958 /* TAPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TAPageControl.h; path = Pods/TAPageControl/TAPageControl/TAPageControl.h; sourceTree = "<group>"; };
+		42CCFF831D61518E00F69F72 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangla MN.ttf"; sourceTree = "<group>"; };
 		42DACC2F1D584DD400348DF0 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */,
+				42CCFF831D61518E00F69F72 /* Test.swift */,
 				4260833C1D52FC880079EFDE /* Info.plist */,
 			);
 			path = EasyCheckoutUITests;
@@ -477,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4260833B1D52FC880079EFDE /* EasyCheckoutUITests.swift in Sources */,
+				42CCFF841D61518E00F69F72 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
