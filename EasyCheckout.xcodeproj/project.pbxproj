@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4260831B1D52FC880079EFDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260831A1D52FC880079EFDE /* AppDelegate.swift */; };
+		426083221D52FC880079EFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426083211D52FC880079EFDE /* Assets.xcassets */; };
+		426083251D52FC880079EFDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426083231D52FC880079EFDE /* LaunchScreen.storyboard */; };
+		426083301D52FC880079EFDE /* EasyCheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */; };
+		4260833B1D52FC880079EFDE /* EasyCheckoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */; };
+		4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */; };
+		4260834E1D52FD730079EFDE /* ECItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834D1D52FD730079EFDE /* ECItem.swift */; };
+		426083501D52FD7D0079EFDE /* ECInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260834F1D52FD7D0079EFDE /* ECInvoice.swift */; };
+		426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083511D52FD920079EFDE /* ECInvoiceViewController.swift */; };
+		426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083531D52FDA30079EFDE /* ECSelectionViewController.swift */; };
+		426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426083551D52FDC10079EFDE /* UIColorExtensions.swift */; };
+		42674F101D598DD4009C3BBD /* ECInvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */; };
+		42A074A21D565DB000982958 /* ECProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A11D565DB000982958 /* ECProgressView.swift */; };
+		42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A31D56773C00982958 /* ECCollectionViewCell.swift */; };
+		42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 42A074A01D55953800982958 /* EC-Bridging-Header.h */; };
+		42C28FC81D9E27A000D71ECD /* TAPageControl.h in Resources */ = {isa = PBXBuildFile; fileRef = 42C28FC51D9E25E200D71ECD /* TAPageControl.h */; };
+		42C28FCA1DA0261400D71ECD /* ECNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C28FC91DA0261400D71ECD /* ECNavigationController.swift */; };
+		42C28FCD1DA02B0F00D71ECD /* ECProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C28FCC1DA02B0F00D71ECD /* ECProgressHUD.swift */; };
+		42C28FCF1DA0386F00D71ECD /* ECLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C28FCE1DA0386F00D71ECD /* ECLoadingViewController.swift */; };
+		42CCFF841D61518E00F69F72 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CCFF831D61518E00F69F72 /* Test.swift */; };
+		42DACC2E1D5834BF00348DF0 /* Bangla MN.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */; };
+		42DACC301D584DD400348DF0 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DACC2F1D584DD400348DF0 /* UIImageViewExtensions.swift */; };
+		42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0709E1D5303CA0085D029 /* ECRequest.swift */; };
+		6FC4F0BAB6573C5D295905A0 /* Pods_EasyCheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8178240179409087C11C11BB /* Pods_EasyCheckoutTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4260832C1D52FC880079EFDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4260830F1D52FC880079EFDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 426083161D52FC880079EFDE;
+			remoteInfo = EasyCheckout;
+		};
+		426083371D52FC880079EFDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4260830F1D52FC880079EFDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 426083161D52FC880079EFDE;
+			remoteInfo = EasyCheckout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1DB753AB581024EF3AD4A93F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		426083171D52FC880079EFDE /* EasyCheckout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyCheckout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260831A1D52FC880079EFDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		426083211D52FC880079EFDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		426083241D52FC880079EFDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		426083261D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCheckoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCheckoutTests.swift; sourceTree = "<group>"; };
+		426083311D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCheckoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCheckoutUITests.swift; sourceTree = "<group>"; };
+		4260833C1D52FC880079EFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECNetworkingHelper.swift; sourceTree = "<group>"; };
+		4260834D1D52FD730079EFDE /* ECItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECItem.swift; sourceTree = "<group>"; };
+		4260834F1D52FD7D0079EFDE /* ECInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoice.swift; sourceTree = "<group>"; };
+		426083511D52FD920079EFDE /* ECInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceViewController.swift; sourceTree = "<group>"; };
+		426083531D52FDA30079EFDE /* ECSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSelectionViewController.swift; sourceTree = "<group>"; };
+		426083551D52FDC10079EFDE /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECInvoiceTableViewCell.swift; sourceTree = "<group>"; };
+		42A074A01D55953800982958 /* EC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EC-Bridging-Header.h"; sourceTree = "<group>"; };
+		42A074A11D565DB000982958 /* ECProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressView.swift; sourceTree = "<group>"; };
+		42A074A31D56773C00982958 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
+		42C28FC51D9E25E200D71ECD /* TAPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TAPageControl.h; path = Pods/TAPageControl/TAPageControl/TAPageControl.h; sourceTree = "<group>"; };
+		42C28FC91DA0261400D71ECD /* ECNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECNavigationController.swift; sourceTree = "<group>"; };
+		42C28FCC1DA02B0F00D71ECD /* ECProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECProgressHUD.swift; sourceTree = "<group>"; };
+		42C28FCE1DA0386F00D71ECD /* ECLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECLoadingViewController.swift; sourceTree = "<group>"; };
+		42CCFF831D61518E00F69F72 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangla MN.ttf"; sourceTree = "<group>"; };
+		42DACC2F1D584DD400348DF0 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		42E0709E1D5303CA0085D029 /* ECRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequest.swift; sourceTree = "<group>"; };
+		4777CAD41BC96371E752D3F3 /* Pods-EasyCheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyCheckoutTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyCheckoutTests/Pods-EasyCheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
+		8178240179409087C11C11BB /* Pods_EasyCheckoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyCheckoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9F304F14E77FBE75B6010B /* Pods-EasyCheckoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyCheckoutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyCheckoutTests/Pods-EasyCheckoutTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		426083141D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083281D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FC4F0BAB6573C5D295905A0 /* Pods_EasyCheckoutTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083331D52FC880079EFDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B91937D75FB43F09FFD351E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DB753AB581024EF3AD4A93F /* Pods.framework */,
+				8178240179409087C11C11BB /* Pods_EasyCheckoutTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4260830E1D52FC880079EFDE = {
+			isa = PBXGroup;
+			children = (
+				42C28FC51D9E25E200D71ECD /* TAPageControl.h */,
+				42DACC2D1D58335D00348DF0 /* Bangla MN.ttf */,
+				426083191D52FC880079EFDE /* EasyCheckout */,
+				4260832E1D52FC880079EFDE /* EasyCheckoutTests */,
+				426083391D52FC880079EFDE /* EasyCheckoutUITests */,
+				426083181D52FC880079EFDE /* Products */,
+				2B91937D75FB43F09FFD351E /* Frameworks */,
+				B086D922C7FC2DE0F077D2DB /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		426083181D52FC880079EFDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				426083171D52FC880079EFDE /* EasyCheckout.app */,
+				4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */,
+				426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		426083191D52FC880079EFDE /* EasyCheckout */ = {
+			isa = PBXGroup;
+			children = (
+				4260831A1D52FC880079EFDE /* AppDelegate.swift */,
+				42C28FCE1DA0386F00D71ECD /* ECLoadingViewController.swift */,
+				426083491D52FD1C0079EFDE /* ViewControllers */,
+				42C28FCB1DA0288200D71ECD /* Views */,
+				426083481D52FD150079EFDE /* Models */,
+				4260834A1D52FD3A0079EFDE /* Helpers */,
+				426083211D52FC880079EFDE /* Assets.xcassets */,
+				426083231D52FC880079EFDE /* LaunchScreen.storyboard */,
+				426083261D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckout;
+			sourceTree = "<group>";
+		};
+		4260832E1D52FC880079EFDE /* EasyCheckoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				4260832F1D52FC880079EFDE /* EasyCheckoutTests.swift */,
+				426083311D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckoutTests;
+			sourceTree = "<group>";
+		};
+		426083391D52FC880079EFDE /* EasyCheckoutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4260833A1D52FC880079EFDE /* EasyCheckoutUITests.swift */,
+				42CCFF831D61518E00F69F72 /* Test.swift */,
+				4260833C1D52FC880079EFDE /* Info.plist */,
+			);
+			path = EasyCheckoutUITests;
+			sourceTree = "<group>";
+		};
+		426083481D52FD150079EFDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4260834D1D52FD730079EFDE /* ECItem.swift */,
+				4260834F1D52FD7D0079EFDE /* ECInvoice.swift */,
+				42E0709E1D5303CA0085D029 /* ECRequest.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		426083491D52FD1C0079EFDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				426083531D52FDA30079EFDE /* ECSelectionViewController.swift */,
+				426083511D52FD920079EFDE /* ECInvoiceViewController.swift */,
+				42A074A31D56773C00982958 /* ECCollectionViewCell.swift */,
+				42674F0F1D598DD4009C3BBD /* ECInvoiceTableViewCell.swift */,
+				42C28FC91DA0261400D71ECD /* ECNavigationController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4260834A1D52FD3A0079EFDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4260834B1D52FD650079EFDE /* ECNetworkingHelper.swift */,
+				42DACC2F1D584DD400348DF0 /* UIImageViewExtensions.swift */,
+				426083551D52FDC10079EFDE /* UIColorExtensions.swift */,
+				42A074A11D565DB000982958 /* ECProgressView.swift */,
+				42A074A01D55953800982958 /* EC-Bridging-Header.h */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		42C28FCB1DA0288200D71ECD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42C28FCC1DA02B0F00D71ECD /* ECProgressHUD.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B086D922C7FC2DE0F077D2DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC9F304F14E77FBE75B6010B /* Pods-EasyCheckoutTests.debug.xcconfig */,
+				4777CAD41BC96371E752D3F3 /* Pods-EasyCheckoutTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		426083161D52FC880079EFDE /* EasyCheckout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4260833F1D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckout" */;
+			buildPhases = (
+				426083131D52FC880079EFDE /* Sources */,
+				426083141D52FC880079EFDE /* Frameworks */,
+				426083151D52FC880079EFDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyCheckout;
+			productName = EasyCheckout;
+			productReference = 426083171D52FC880079EFDE /* EasyCheckout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4260832A1D52FC880079EFDE /* EasyCheckoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 426083421D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutTests" */;
+			buildPhases = (
+				3A9CEE9610753DEB3D0606CC /* [CP] Check Pods Manifest.lock */,
+				426083271D52FC880079EFDE /* Sources */,
+				426083281D52FC880079EFDE /* Frameworks */,
+				426083291D52FC880079EFDE /* Resources */,
+				E4D0EB6ABE2499DB8AD010B4 /* [CP] Embed Pods Frameworks */,
+				C7E890C96977A563F9BB9163 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4260832D1D52FC880079EFDE /* PBXTargetDependency */,
+			);
+			name = EasyCheckoutTests;
+			productName = EasyCheckoutTests;
+			productReference = 4260832B1D52FC880079EFDE /* EasyCheckoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		426083351D52FC880079EFDE /* EasyCheckoutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 426083451D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutUITests" */;
+			buildPhases = (
+				426083321D52FC880079EFDE /* Sources */,
+				426083331D52FC880079EFDE /* Frameworks */,
+				426083341D52FC880079EFDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				426083381D52FC880079EFDE /* PBXTargetDependency */,
+			);
+			name = EasyCheckoutUITests;
+			productName = EasyCheckoutUITests;
+			productReference = 426083361D52FC880079EFDE /* EasyCheckoutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4260830F1D52FC880079EFDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MCP;
+				TargetAttributes = {
+					426083161D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4260832A1D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 426083161D52FC880079EFDE;
+					};
+					426083351D52FC880079EFDE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 426083161D52FC880079EFDE;
+					};
+				};
+			};
+			buildConfigurationList = 426083121D52FC880079EFDE /* Build configuration list for PBXProject "EasyCheckout" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4260830E1D52FC880079EFDE;
+			productRefGroup = 426083181D52FC880079EFDE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				426083161D52FC880079EFDE /* EasyCheckout */,
+				4260832A1D52FC880079EFDE /* EasyCheckoutTests */,
+				426083351D52FC880079EFDE /* EasyCheckoutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		426083151D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42C28FC81D9E27A000D71ECD /* TAPageControl.h in Resources */,
+				42DACC2E1D5834BF00348DF0 /* Bangla MN.ttf in Resources */,
+				426083251D52FC880079EFDE /* LaunchScreen.storyboard in Resources */,
+				426083221D52FC880079EFDE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083291D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083341D52FC880079EFDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A9CEE9610753DEB3D0606CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7E890C96977A563F9BB9163 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyCheckoutTests/Pods-EasyCheckoutTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D0EB6ABE2499DB8AD010B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyCheckoutTests/Pods-EasyCheckoutTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		426083131D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42A074A51D56792E00982958 /* EC-Bridging-Header.h in Sources */,
+				426083521D52FD920079EFDE /* ECInvoiceViewController.swift in Sources */,
+				42674F101D598DD4009C3BBD /* ECInvoiceTableViewCell.swift in Sources */,
+				42A074A21D565DB000982958 /* ECProgressView.swift in Sources */,
+				426083561D52FDC10079EFDE /* UIColorExtensions.swift in Sources */,
+				4260834C1D52FD650079EFDE /* ECNetworkingHelper.swift in Sources */,
+				42DACC301D584DD400348DF0 /* UIImageViewExtensions.swift in Sources */,
+				42C28FCA1DA0261400D71ECD /* ECNavigationController.swift in Sources */,
+				42A074A41D56773C00982958 /* ECCollectionViewCell.swift in Sources */,
+				42E0709F1D5303CA0085D029 /* ECRequest.swift in Sources */,
+				4260834E1D52FD730079EFDE /* ECItem.swift in Sources */,
+				426083541D52FDA30079EFDE /* ECSelectionViewController.swift in Sources */,
+				4260831B1D52FC880079EFDE /* AppDelegate.swift in Sources */,
+				42C28FCF1DA0386F00D71ECD /* ECLoadingViewController.swift in Sources */,
+				42C28FCD1DA02B0F00D71ECD /* ECProgressHUD.swift in Sources */,
+				426083501D52FD7D0079EFDE /* ECInvoice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083271D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				426083301D52FC880079EFDE /* EasyCheckoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		426083321D52FC880079EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4260833B1D52FC880079EFDE /* EasyCheckoutUITests.swift in Sources */,
+				42CCFF841D61518E00F69F72 /* Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4260832D1D52FC880079EFDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 426083161D52FC880079EFDE /* EasyCheckout */;
+			targetProxy = 4260832C1D52FC880079EFDE /* PBXContainerItemProxy */;
+		};
+		426083381D52FC880079EFDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 426083161D52FC880079EFDE /* EasyCheckout */;
+			targetProxy = 426083371D52FC880079EFDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		426083231D52FC880079EFDE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				426083241D52FC880079EFDE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4260833D1D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4260833E1D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		426083401D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyCheckout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		426083411D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyCheckout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		426083431D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC9F304F14E77FBE75B6010B /* Pods-EasyCheckoutTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyCheckoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyCheckout.app/EasyCheckout";
+			};
+			name = Debug;
+		};
+		426083441D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4777CAD41BC96371E752D3F3 /* Pods-EasyCheckoutTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyCheckoutTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyCheckout.app/EasyCheckout";
+			};
+			name = Release;
+		};
+		426083461D52FC880079EFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyCheckoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+				TEST_TARGET_NAME = EasyCheckout;
+			};
+			name = Debug;
+		};
+		426083471D52FC880079EFDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyCheckoutUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = parrish.EasyCheckoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EasyCheckout/EC-Bridging-Header.h";
+				TEST_TARGET_NAME = EasyCheckout;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		426083121D52FC880079EFDE /* Build configuration list for PBXProject "EasyCheckout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4260833D1D52FC880079EFDE /* Debug */,
+				4260833E1D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4260833F1D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083401D52FC880079EFDE /* Debug */,
+				426083411D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		426083421D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083431D52FC880079EFDE /* Debug */,
+				426083441D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		426083451D52FC880079EFDE /* Build configuration list for PBXNativeTarget "EasyCheckoutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				426083461D52FC880079EFDE /* Debug */,
+				426083471D52FC880079EFDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4260830F1D52FC880079EFDE /* Project object */;
+}
