@@ -13,10 +13,10 @@ final class ECInvoiceTableViewCell: UITableViewCell {
     var photoImageView: UIImageView
     var photoImageUrl: String? {
         didSet{
-            if let url = NSURL(string: photoImageUrl!){
-                if let data = NSData(contentsOfURL: url) {
+            if let url = URL(string: photoImageUrl!){
+                if let data = try? Data(contentsOf: url) {
                     self.photoImageView.image = UIImage(named: "placeholder")
-                    self.photoImageView.downloadImageFrom(link: photoImageUrl!, contentMode: UIViewContentMode.ScaleAspectFit)
+                    self.photoImageView.downloadImageFrom(link: photoImageUrl!, contentMode: UIViewContentMode.scaleAspectFit)
 
                 }
             }
@@ -28,7 +28,7 @@ final class ECInvoiceTableViewCell: UITableViewCell {
     var costIconImageView: UIImageView
     var costLabel: UILabel
     override var layoutMargins: UIEdgeInsets {
-        get { return UIEdgeInsetsZero }
+        get { return UIEdgeInsets.zero }
         set(newVal) {}
     }
 
@@ -56,35 +56,35 @@ final class ECInvoiceTableViewCell: UITableViewCell {
 
         let margins = contentView.layoutMarginsGuide
         photoImageView.translatesAutoresizingMaskIntoConstraints = false
-        photoImageView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
-        photoImageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor, constant: 5).active = true
-        photoImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 34).active = true
-        photoImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 52).active = true
-        photoImageView.contentMode = .ScaleAspectFit
+        photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
+        photoImageView.widthAnchor.constraint(equalToConstant: 34).isActive = true
+        photoImageView.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        photoImageView.contentMode = .scaleAspectFit
 
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
-        productLabel.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
-        productLabel.leadingAnchor.constraintEqualToAnchor(photoImageView.trailingAnchor, constant: 20).active = true
-        productLabel.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 5).active = true
+        productLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        productLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 20).isActive = true
+        productLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5).isActive = true
 
-        productLabel.textAlignment = .Left
+        productLabel.textAlignment = .left
         productLabel.numberOfLines = 2
         productLabel.font = UIFont(name: "Avenir-Book", size: 12)
-        productLabel.textColor = UIColor.blackColor()   
+        productLabel.textColor = UIColor.black   
 
         costIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        costIconImageView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
-        costIconImageView.trailingAnchor.constraintEqualToAnchor(costLabel.leadingAnchor, constant: -3).active = true
-        costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 16).active = true
-        costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 16).active = true
-        costIconImageView.contentMode = .ScaleAspectFit
+        costIconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        costIconImageView.trailingAnchor.constraint(equalTo: costLabel.leadingAnchor, constant: -3).isActive = true
+        costIconImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        costIconImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        costIconImageView.contentMode = .scaleAspectFit
         costIconImageView.image = UIImage(named: "costIcon")
 
         costLabel.translatesAutoresizingMaskIntoConstraints = false
-        costLabel.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor).active = true
-        costLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 1).active = true
-        costLabel.textAlignment = .Center
+        costLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        costLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 1).isActive = true
+        costLabel.textAlignment = .center
         costLabel.font = UIFont(name: "Avenir-Book", size: 12)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 

@@ -11,20 +11,20 @@ import UIKit
 
 final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private var items: [ECItem]?
-    private var invoice: ECInvoice?
+    fileprivate var items: [ECItem]?
+    fileprivate var invoice: ECInvoice?
 
-    private var itemOverviewTableView: UITableView
-    private var subtotalLabel: UILabel
-    private var subtotalAmountLabel: UILabel
-    private var taxLabel: UILabel
-    private var taxAmountLabel: UILabel
-    private var lineView: UIView
-    private var totalLabel: UILabel
-    private var confirmButton: UIButton
+    fileprivate var itemOverviewTableView: UITableView
+    fileprivate var subtotalLabel: UILabel
+    fileprivate var subtotalAmountLabel: UILabel
+    fileprivate var taxLabel: UILabel
+    fileprivate var taxAmountLabel: UILabel
+    fileprivate var lineView: UIView
+    fileprivate var totalLabel: UILabel
+    fileprivate var confirmButton: UIButton
 
-    private var totalAmountLabel: UILabel
-    private let cellReuseIdendifier = "cell"
+    fileprivate var totalAmountLabel: UILabel
+    fileprivate let cellReuseIdendifier = "cell"
 
     required convenience init?(coder aDecoder: NSCoder) {
         self.init(aDecoder)
@@ -62,7 +62,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
 
         //Nav Bar
         let navString = "Checkout"
@@ -71,84 +71,83 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         navLabel.attributedText = returnNavTitleString(navString)
         navLabel.sizeToFit()
         self.navigationItem.titleView = navLabel
-        navLabel.textAlignment = NSTextAlignment.Center
+        navLabel.textAlignment = NSTextAlignment.center
 
         let doneButtonImage = UIImage(named: "done")!
-        let dponeButton = UIButton(type: .Custom)
-        dponeButton.frame = CGRectMake(0,0,40,19)
-        dponeButton.setImage(doneButtonImage, forState: .Normal)
+        let dponeButton = UIButton(type: .custom)
+        dponeButton.frame = CGRect(x: 0,y: 0,width: 40,height: 19)
+        dponeButton.setImage(doneButtonImage, for: UIControlState())
 
-        lineView.backgroundColor = UIColor.blackColor()
+        lineView.backgroundColor = UIColor.black
 
 
-        itemOverviewTableView.registerClass(ECInvoiceTableViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
+        itemOverviewTableView.register(ECInvoiceTableViewCell.self, forCellReuseIdentifier: cellReuseIdendifier)
         itemOverviewTableView.dataSource = self
         itemOverviewTableView.delegate = self
         itemOverviewTableView.allowsSelection = false
 
 
 
-        subtotalLabel.textAlignment = .Center
+        subtotalLabel.textAlignment = .center
         subtotalLabel.font = UIFont(name: "Avenir-Book", size: 12)
         subtotalLabel.textColor = UIColor(netHex: 0x9B9B9B)
         subtotalLabel.text = "Subtotal"
 
-        subtotalAmountLabel.textAlignment = .Center
+        subtotalAmountLabel.textAlignment = .center
         subtotalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
         subtotalAmountLabel.textColor = UIColor(netHex: 0x9B9B9B)
-        if let sub = invoice?.subtotal {
-            if let unwrapped = returnConvertedDollarAmount(sub){
-                subtotalAmountLabel.text = unwrapped
-            }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+         if let sub = invoice?.subtotal {
+            subtotalAmountLabel.text = formatter.string(from: NSNumber(value: sub))
+
+            
 
         }
+        
 
-        taxLabel.textAlignment = .Center
+        taxLabel.textAlignment = .center
         taxLabel.font = UIFont(name: "Avenir-Book", size: 12)
-        taxLabel.textColor = UIColor.blackColor()
+        taxLabel.textColor = UIColor.black
         taxLabel.text = "Tax"
 
-        taxAmountLabel.textAlignment = .Center
+        taxAmountLabel.textAlignment = .center
         taxAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
-        taxAmountLabel.textColor = UIColor.blackColor()
+        taxAmountLabel.textColor = UIColor.black
         if let tx = invoice?.tax {
-            if let unwrapped = returnConvertedDollarAmount(tx){
-                taxAmountLabel.text = unwrapped
-            }
-
+            taxAmountLabel.text = formatter.string(from: NSNumber(value: tx))
         }
 
-        totalLabel.textAlignment = .Center
+        totalLabel.textAlignment = .center
         totalLabel.font = UIFont(name: "Avenir-Book", size: 12)
-        totalLabel.textColor = UIColor.blackColor()
+        totalLabel.textColor = UIColor.black
         totalLabel.text = "Total"
 
-        totalAmountLabel.textAlignment = .Center
+        totalAmountLabel.textAlignment = .center
         totalAmountLabel.font = UIFont(name: "Avenir-Book", size: 12)
-        totalAmountLabel.textColor = UIColor.blackColor()
-        totalAmountLabel.text = invoice?.total
+        totalAmountLabel.textColor = UIColor.black
         if let tl = invoice?.total {
-            if let unwrapped = returnConvertedDollarAmount(tl){
-                totalAmountLabel.text = unwrapped
-            }
-
+            totalAmountLabel.text = formatter.string(from: NSNumber(value: tl))
         }
+       
 
-        confirmButton.setTitle("Confirm", forState: .Normal)
+        confirmButton.setTitle("Confirm", for: UIControlState())
         confirmButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
         confirmButton.backgroundColor = UIColor(netHex: 0xF7B445)
         confirmButton.layer.borderWidth = 0.0
-        confirmButton.titleLabel?.textColor = UIColor.whiteColor()
+        confirmButton.titleLabel?.textColor = UIColor.white
 
-        confirmButton.layer.shadowColor = UIColor.blackColor().CGColor
-        confirmButton.layer.shadowOffset = CGSizeMake(5, 5)
+        confirmButton.layer.shadowColor = UIColor.black.cgColor
+        confirmButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         confirmButton.layer.shadowRadius = 5
         confirmButton.layer.cornerRadius = 25
         confirmButton.layer.shadowOpacity = 0.3
 
         itemOverviewTableView.separatorColor = UIColor(netHex: 0xEDEDED)
-        itemOverviewTableView.separatorInset = UIEdgeInsetsZero
-        itemOverviewTableView.layoutMargins = UIEdgeInsetsZero
+        itemOverviewTableView.separatorInset = UIEdgeInsets.zero
+        itemOverviewTableView.layoutMargins = UIEdgeInsets.zero
         itemOverviewTableView.rowHeight = 60
 
         self.navigationItem.hidesBackButton = true
@@ -175,7 +174,7 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
     // MARK: UITableView
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if let fix = items {
             return fix.count
@@ -184,12 +183,12 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdendifier, forIndexPath: indexPath) as! ECInvoiceTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdendifier, for: indexPath) as! ECInvoiceTableViewCell
 
         if let fix = items {
-            let item = fix[indexPath.row] as ECItem
+            let item = fix[(indexPath as NSIndexPath).row] as ECItem
             cell.photoImageUrl = item.imageUrl
             cell.productLabel.text = item.name
             cell.costLabel.text = item.price! + "0"
@@ -208,47 +207,47 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
 
         itemOverviewTableView.translatesAutoresizingMaskIntoConstraints = false
-        itemOverviewTableView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
-        itemOverviewTableView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        itemOverviewTableView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        itemOverviewTableView.heightAnchor.constraintEqualToAnchor(nil, constant: 360).active = true
+        itemOverviewTableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        itemOverviewTableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+        itemOverviewTableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+        itemOverviewTableView.heightAnchor.constraint(equalToConstant: 360).isActive = true
 
         subtotalLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtotalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 5).active = true
-        subtotalLabel.topAnchor.constraintEqualToAnchor(itemOverviewTableView.bottomAnchor, constant: 100).active = true
+        subtotalLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 5).isActive = true
+        subtotalLabel.topAnchor.constraint(equalTo: itemOverviewTableView.bottomAnchor, constant: 100).isActive = true
 
         subtotalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtotalAmountLabel.centerYAnchor.constraintEqualToAnchor(subtotalLabel.centerYAnchor).active = true
-        subtotalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        subtotalAmountLabel.centerYAnchor.constraint(equalTo: subtotalLabel.centerYAnchor).isActive = true
+        subtotalAmountLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 5).isActive = true
 
         taxLabel.translatesAutoresizingMaskIntoConstraints = false
-        taxLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
-        taxLabel.topAnchor.constraintEqualToAnchor(subtotalAmountLabel.bottomAnchor, constant: 10).active = true
+        taxLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant:5).isActive = true
+        taxLabel.topAnchor.constraint(equalTo: subtotalAmountLabel.bottomAnchor, constant: 10).isActive = true
 
         taxAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        taxAmountLabel.centerYAnchor.constraintEqualToAnchor(taxLabel.centerYAnchor).active = true
-        taxAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        taxAmountLabel.centerYAnchor.constraint(equalTo: taxLabel.centerYAnchor).isActive = true
+        taxAmountLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 5).isActive = true
 
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.topAnchor.constraintEqualToAnchor(taxAmountLabel.bottomAnchor, constant: 10).active = true
-        lineView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 0).active = true
-        lineView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: 0).active = true
-        lineView.heightAnchor.constraintEqualToAnchor(nil, constant: 1).active = true
+        lineView.topAnchor.constraint(equalTo: taxAmountLabel.bottomAnchor, constant: 10).isActive = true
+        lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         totalLabel.translatesAutoresizingMaskIntoConstraints = false
-        totalLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant:5).active = true
-        totalLabel.topAnchor.constraintEqualToAnchor(lineView.bottomAnchor, constant: 10).active = true
+        totalLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant:5).isActive = true
+        totalLabel.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 10).isActive = true
 
         totalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        totalAmountLabel.centerYAnchor.constraintEqualToAnchor(totalLabel.centerYAnchor).active = true
-        totalAmountLabel.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 5).active = true
+        totalAmountLabel.centerYAnchor.constraint(equalTo: totalLabel.centerYAnchor).isActive = true
+        totalAmountLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 5).isActive = true
 
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
-        confirmButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        confirmButton.topAnchor.constraintEqualToAnchor(totalLabel.bottomAnchor, constant: 40).active = true
-        confirmButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
-        confirmButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
-        confirmButton.enabled = false
+        confirmButton.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        confirmButton.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 40).isActive = true
+        confirmButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        confirmButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        confirmButton.isEnabled = false
 
     }
 
@@ -258,12 +257,12 @@ final class ECInvoiceViewController: UIViewController, UITableViewDelegate, UITa
 
     //MARK: Helper Functions
 
-    func returnNavTitleString(stringValue: String) -> NSAttributedString {
-        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+    func returnNavTitleString(_ stringValue: String) -> NSAttributedString {
+        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.black])
         return newString
     }
 
-    func returnConvertedDollarAmount(stringValue: String) -> String? {
+    func returnConvertedDollarAmount(_ stringValue: String) -> String? {
         //conversion handles all situations
         if let convertedDouble = Double(stringValue) {
             return String(format: "%.02f", (convertedDouble / 1.0))

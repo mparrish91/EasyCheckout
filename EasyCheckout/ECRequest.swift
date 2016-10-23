@@ -13,14 +13,14 @@ import UIKit
 final class ECRequest: NSObject {
 
     var requestMethod: String
-    var URL: NSURL
+    var URL: Foundation.URL
     var params: [String : AnyObject]
 
 
-    typealias ECRequestHandler = (success: Bool, object: AnyObject?) -> ()
+    typealias ECRequestHandler = (_ success: Bool, _ object: AnyObject?) -> ()
 
 
-    init(requestMethod: String, url: NSURL, params: [String : AnyObject] ) {
+    init(requestMethod: String, url: Foundation.URL, params: [String : AnyObject] ) {
         self.requestMethod = requestMethod
         self.URL = url
         self.params = params
@@ -28,19 +28,19 @@ final class ECRequest: NSObject {
 
     }
 
-    func preparedURLRequest() -> NSURLRequest {
+    func preparedURLRequest() -> URLRequest {
 
         let preparedURLString = self.URL.absoluteString
-        let preparedURL = NSURL(string: preparedURLString)
-        let request = NSMutableURLRequest(URL: preparedURL!)
-        request.HTTPMethod = self.requestMethod
+        let preparedURL = Foundation.URL(string: preparedURLString)
+        let request = NSMutableURLRequest(url: preparedURL!)
+        request.httpMethod = self.requestMethod
 
         if requestMethod == "PUT" {
             do {
-                let jsonData = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
+                let jsonData = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions.prettyPrinted)
                 // here "jsonData" is the dictionary encoded in JSON data
-                request.HTTPBody = jsonData
-                return request
+                request.httpBody = jsonData
+                return request as URLRequest
 
             } catch let error as NSError {
                 print(error)
@@ -48,27 +48,27 @@ final class ECRequest: NSObject {
             
         }
 
-        return request
+        return request as URLRequest
         
         
     }
 
-    func performRequestWithHandler(handler: ECRequestHandler) {
+    func performRequestWithHandler(_ handler: @escaping ECRequestHandler) {
 
         let request = preparedURLRequest()
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        session.dataTaskWithRequest(request) {(responseData, response, error) ->  Void in
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        session.dataTask(with: request, completionHandler: {(responseData, response, error) ->  Void in
             if let data = responseData {
-                let json = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
-                if let response = response as? NSHTTPURLResponse where 200...299 ~= response.statusCode {
-                    handler(success: true, object: json)
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
+                    handler(true, json as AnyObject?)
                 }else {
                     print("error: \(error!.localizedDescription)")
-                    handler(success: false, object: json)
+                    handler(false, json as AnyObject?)
 
                 }
             }
-            }.resume()
+            }) .resume()
     }
     
     

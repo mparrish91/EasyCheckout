@@ -12,20 +12,20 @@ import UIKit
 
 final class ECSelectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    private var item: ECItem
-    private var photoCollectionView: UICollectionView
+    fileprivate var item: ECItem
+    fileprivate var photoCollectionView: UICollectionView
 //    private var pageControl: TAPageControl
-    private var progressView: ECProgressView
-    private var cartLabel: UILabel
+    fileprivate var progressView: ECProgressView
+    fileprivate var cartLabel: UILabel
 
-    private var productIconImageView: UIImageView
-    private var brandIconImageView: UIImageView
-    private var costIconImageView: UIImageView
-    private var productLabel: UILabel
-    private var brandLabel: UILabel
-    private var costLabel: UILabel
+    fileprivate var productIconImageView: UIImageView
+    fileprivate var brandIconImageView: UIImageView
+    fileprivate var costIconImageView: UIImageView
+    fileprivate var productLabel: UILabel
+    fileprivate var brandLabel: UILabel
+    fileprivate var costLabel: UILabel
 
-    private var keepButton: UIButton
+    fileprivate var keepButton: UIButton
 
 
 
@@ -35,7 +35,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     init?(_ coder: NSCoder? = nil) {
         self.item = ECItem()
-        self.photoCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+        self.photoCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
 //        self.pageControl = TAPageControl()
         self.progressView = ECProgressView()
         self.cartLabel = UILabel()
@@ -61,7 +61,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         self.init()
         self.item = item
 
-        self.photoCollectionView.registerClass(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.photoCollectionView.register(ECCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         loadCollectionView()
 
     }
@@ -69,12 +69,12 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     // MARK: UICollectionView
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as? ECCollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ECCollectionViewCell {
 
             productLabel.text = item.name
             brandLabel.text = item.brand
@@ -88,7 +88,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         }
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width * 0.8
         let height = collectionView.bounds.height * 0.8
         let size = CGSize(width: width, height: height) 
@@ -101,7 +101,7 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         photoCollectionView.dataSource = self
         photoCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
         photoCollectionView.frame = self.view.frame
-        photoCollectionView.backgroundColor = .whiteColor()
+        photoCollectionView.backgroundColor = UIColor.white
         photoCollectionView.showsVerticalScrollIndicator = false
 
     }
@@ -109,12 +109,16 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
 
     // MARK: UIViewController
+    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
 
         self.title = "My Items"
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
 
 
         setConstraints()
@@ -129,18 +133,18 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 //        pageControl.currentDotImage = UIImage(named: "oval22Copy9")
 //        pageControl.dotImage = UIImage(named: "oval22Copy8")
 
-        keepButton.setTitle("Keep :)", forState: .Normal)
+        keepButton.setTitle("Keep :)", for: UIControlState())
         keepButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 18)
         keepButton.backgroundColor = UIColor(netHex: 0xF7B445)
         keepButton.layer.borderWidth = 0.0
-        keepButton.titleLabel?.textColor = UIColor.whiteColor()
+        keepButton.titleLabel?.textColor = UIColor.white
 
-        keepButton.layer.shadowColor = UIColor.blackColor().CGColor
-        keepButton.layer.shadowOffset = CGSizeMake(0,2)
+        keepButton.layer.shadowColor = UIColor.black.cgColor
+        keepButton.layer.shadowOffset = CGSize(width: 0,height: 2)
         keepButton.layer.shadowRadius = 5
         keepButton.layer.cornerRadius = 25
         keepButton.layer.shadowOpacity = 0.3
-        keepButton.addTarget(self, action: #selector(onKeepButtonPressed), forControlEvents: .TouchUpInside)
+        keepButton.addTarget(self, action: #selector(onKeepButtonPressed), for: .touchUpInside)
 
 
         //Nav Bar
@@ -150,41 +154,51 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         navLabel.attributedText = returnNavTitleString(navString)
         navLabel.sizeToFit()
         self.navigationItem.titleView = navLabel
-        navLabel.textAlignment = NSTextAlignment.Center
+        navLabel.textAlignment = NSTextAlignment.center
 
         let nextButtonImage = UIImage(named: "next")!
-        let nextButton = UIButton(type: .Custom)
-        nextButton.frame = CGRectMake(0,0,40,19)
-        nextButton.setImage(nextButtonImage, forState: .Normal)
-        nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        let nextButton = UIButton(type: .custom)
+        nextButton.frame = CGRect(x: 0,y: 0,width: 40,height: 19)
+        nextButton.setImage(nextButtonImage, for: UIControlState())
+        nextButton.addTarget(self, action: #selector(ECSelectionViewController.onNextButtonPressed), for: UIControlEvents.touchUpInside)
         let nextButtonItem = UIBarButtonItem(customView: nextButton)
-        self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
+        self.navigationItem.setRightBarButton(nextButtonItem, animated: false)
         self.navigationItem.hidesBackButton = true
 
 
         //enable progress view once Data has loaded
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ECSelectionViewController.enableProgressView), name: "dataLoaded", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ECSelectionViewController.enableProgressView), name: NSNotification.Name(rawValue: "dataLoaded"), object: nil)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //increment progress count (users is moving through cart)
+        print(navigationController!.viewControllers.count - 1)
+        self.progressView.setColoredUpToIndex((navigationController!.viewControllers.count - 1))
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
 //        self.pageControl.numberOfPages = 4
 
 
         //Changing bar button to Done to notify user
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let index = appDelegate.nextVCIndex
-        if index == appDelegate.vcArray.count {
+        let nav = self.navigationController as! ECNavigationController
+
+        let index = nav.nextVCIndex
+        if index == nav.vcArray.count {
             let nextButtonImage = UIImage(named: "done")!
-            let nextButton = UIButton(type: .Custom)
-            nextButton.frame = CGRectMake(0,0,40,19)
-            nextButton.setImage(nextButtonImage, forState: .Normal)
-            nextButton.addTarget(self, action: "onNextButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+            let nextButton = UIButton(type: .custom)
+            nextButton.frame = CGRect(x: 0,y: 0,width: 40,height: 19)
+            nextButton.setImage(nextButtonImage, for: UIControlState())
+            nextButton.addTarget(self, action: #selector(ECSelectionViewController.onNextButtonPressed), for: UIControlEvents.touchUpInside)
 
             let nextButtonItem = UIBarButtonItem(customView: nextButton)
 
-            self.navigationItem.setRightBarButtonItem(nextButtonItem, animated: false)
+            self.navigationItem.setRightBarButton(nextButtonItem, animated: false)
         }
 
     }
@@ -212,9 +226,9 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
             ECNetworkingHelper.sharedInstance.keptItemsArray.append(item)
 
         }
-        let alertController = UIAlertController(title: "", message: "Item added to cart :)", preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "", message: "Item added to cart :)", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
 
     }
 
@@ -222,16 +236,16 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
 
     func onNextButtonPressed() {
 
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let index = appDelegate.nextVCIndex
+        let nav = self.navigationController as! ECNavigationController
+        let index = nav.nextVCIndex
         let keptItems = ECNetworkingHelper.sharedInstance.keptItemIDs
         let items = ECNetworkingHelper.sharedInstance.keptItemsArray
-        if index == appDelegate.vcArray.count {
+        if index == nav.vcArray.count {
             //fetch invoice
             //present invoice VC
 
             ECNetworkingHelper.sharedInstance.updateCurrentFix(keptItems, completionHandler: { (data, error) in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     if let invoiceVC = ECInvoiceViewController(items: items , invoice: data) {
                         self.navigationController?.pushViewController(invoiceVC, animated: true)
                     }
@@ -240,23 +254,23 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         }else {
 
             //push next selection
-            let nextVC = appDelegate.vcArray[index]
+            let nextVC = nav.vcArray[index]
             self.navigationController?.pushViewController(nextVC, animated: true)
-            appDelegate.nextVCIndex += 1
+            nav.nextVCIndex += 1
+
         }
+        
+     
     }
 
 
     func enableProgressView() {
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let count = appDelegate.vcArray.count
-
+        
+        let count = ECNetworkingHelper.sharedInstance.itemCount
         self.progressView.count = count
         self.progressView.createShapeLayer(count)
 
-        //increment progress count (users is moving through cart)
-        self.progressView.updateView()
+
 
 
     }
@@ -267,89 +281,89 @@ final class ECSelectionViewController: UIViewController, UICollectionViewDelegat
         let margins = view.layoutMarginsGuide
 
         photoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        photoCollectionView.topAnchor.constraintEqualToAnchor(margins.topAnchor, constant: 0).active = true
-        photoCollectionView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 0).active = true
-        photoCollectionView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: 0).active = true
-        photoCollectionView.bottomAnchor.constraintEqualToAnchor(cartLabel.topAnchor, constant: -10).active = true
-        photoCollectionView.contentMode = .ScaleAspectFit
+        photoCollectionView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        photoCollectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+        photoCollectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+        photoCollectionView.bottomAnchor.constraint(equalTo: cartLabel.topAnchor, constant: -10).isActive = true
+        photoCollectionView.contentMode = .scaleAspectFit
 
 //        pageControl.translatesAutoresizingMaskIntoConstraints = false
 //        pageControl.trailingAnchor.constraintEqualToAnchor(photoCollectionView.trailingAnchor, constant:-5).active = true
 //        pageControl.bottomAnchor.constraintEqualToAnchor(photoCollectionView.bottomAnchor, constant: -20).active = true
 
         cartLabel.translatesAutoresizingMaskIntoConstraints = false
-        cartLabel.bottomAnchor.constraintEqualToAnchor(progressView.topAnchor, constant: -5).active = true
-        cartLabel.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
+        cartLabel.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -5).isActive = true
+        cartLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
 
 //        center the progress view and constrain everything from it
         progressView.translatesAutoresizingMaskIntoConstraints = false
-        progressView.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        progressView.centerYAnchor.constraintEqualToAnchor(margins.centerYAnchor, constant: 80).active = true
-        progressView.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor, constant: 10).active = true
-        progressView.heightAnchor.constraintEqualToAnchor(nil, constant: 4).active = true
+        progressView.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        progressView.centerYAnchor.constraint(equalTo: margins.centerYAnchor, constant: 80).isActive = true
+        progressView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 10).isActive = true
+        progressView.heightAnchor.constraint(equalToConstant: 4).isActive = true
         // FIXME: Why is this negative, its working for now
-        progressView.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor, constant: -10).active = true
+        progressView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10).isActive = true
 
         productIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        productIconImageView.topAnchor.constraintEqualToAnchor(progressView.bottomAnchor, constant: 20).active = true
-        productIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
-        productIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        productIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        productIconImageView.contentMode = .ScaleAspectFit
+        productIconImageView.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 20).isActive = true
+        productIconImageView.leadingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: 0).isActive = true
+        productIconImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        productIconImageView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        productIconImageView.contentMode = .scaleAspectFit
         productIconImageView.image = UIImage(named: "nameIcon")
 
         brandIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        brandIconImageView.topAnchor.constraintEqualToAnchor(productIconImageView.bottomAnchor, constant: 5).active = true
-        brandIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
-        brandIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        brandIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        brandIconImageView.contentMode = .ScaleAspectFit
+        brandIconImageView.topAnchor.constraint(equalTo: productIconImageView.bottomAnchor, constant: 5).isActive = true
+        brandIconImageView.leadingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: 0).isActive = true
+        brandIconImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        brandIconImageView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        brandIconImageView.contentMode = .scaleAspectFit
         brandIconImageView.image = UIImage(named: "brandIcon")
 
         costIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        costIconImageView.topAnchor.constraintEqualToAnchor(brandIconImageView.bottomAnchor, constant: 5).active = true
-        costIconImageView.leadingAnchor.constraintEqualToAnchor(progressView.leadingAnchor, constant: 0).active = true
-        costIconImageView.widthAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        costIconImageView.heightAnchor.constraintEqualToAnchor(nil, constant: 35).active = true
-        costIconImageView.contentMode = .ScaleAspectFit
+        costIconImageView.topAnchor.constraint(equalTo: brandIconImageView.bottomAnchor, constant: 5).isActive = true
+        costIconImageView.leadingAnchor.constraint(equalTo: progressView.leadingAnchor, constant: 0).isActive = true
+        costIconImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        costIconImageView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        costIconImageView.contentMode = .scaleAspectFit
         costIconImageView.image = UIImage(named: "costIcon")
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
-        productLabel.centerYAnchor.constraintEqualToAnchor(productIconImageView.centerYAnchor).active = true
-        productLabel.leadingAnchor.constraintEqualToAnchor(productIconImageView.trailingAnchor, constant: 5).active = true
-        productLabel.textAlignment = .Left
+        productLabel.centerYAnchor.constraint(equalTo: productIconImageView.centerYAnchor).isActive = true
+        productLabel.leadingAnchor.constraint(equalTo: productIconImageView.trailingAnchor, constant: 5).isActive = true
+        productLabel.textAlignment = .left
         productLabel.numberOfLines = 2
         productLabel.font = UIFont(name: "Avenir-Book", size: 18)
         productLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
         brandLabel.translatesAutoresizingMaskIntoConstraints = false
-        brandLabel.centerYAnchor.constraintEqualToAnchor(brandIconImageView.centerYAnchor).active = true
-        brandLabel.leadingAnchor.constraintEqualToAnchor(brandIconImageView.trailingAnchor, constant: 5).active = true
-        brandLabel.textAlignment = .Left
+        brandLabel.centerYAnchor.constraint(equalTo: brandIconImageView.centerYAnchor).isActive = true
+        brandLabel.leadingAnchor.constraint(equalTo: brandIconImageView.trailingAnchor, constant: 5).isActive = true
+        brandLabel.textAlignment = .left
         brandLabel.numberOfLines = 1
         brandLabel.font = UIFont(name: "Avenir-Book", size: 18)
         brandLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
         costLabel.translatesAutoresizingMaskIntoConstraints = false
-        costLabel.centerYAnchor.constraintEqualToAnchor(costIconImageView.centerYAnchor).active = true
-        costLabel.leadingAnchor.constraintEqualToAnchor(costIconImageView.trailingAnchor, constant: 5).active = true
-        costLabel.textAlignment = .Left
+        costLabel.centerYAnchor.constraint(equalTo: costIconImageView.centerYAnchor).isActive = true
+        costLabel.leadingAnchor.constraint(equalTo: costIconImageView.trailingAnchor, constant: 5).isActive = true
+        costLabel.textAlignment = .left
         costLabel.numberOfLines = 1
         costLabel.font = UIFont(name: "Avenir-Book", size: 18)
         costLabel.textColor = UIColor(netHex: 0x9B9B9B)
 
         keepButton.translatesAutoresizingMaskIntoConstraints = false
-        keepButton.centerXAnchor.constraintEqualToAnchor(margins.centerXAnchor).active = true
-        keepButton.topAnchor.constraintEqualToAnchor(costLabel.bottomAnchor, constant: 40).active = true
-        keepButton.widthAnchor.constraintEqualToAnchor(nil, constant: 200).active = true
-        keepButton.heightAnchor.constraintEqualToAnchor(nil, constant: 48).active = true
+        keepButton.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        keepButton.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 40).isActive = true
+        keepButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        keepButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
 
     }
 
 
 
-    func returnNavTitleString(stringValue: String) -> NSAttributedString {
-        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.blackColor()])
+    func returnNavTitleString(_ stringValue: String) -> NSAttributedString {
+        let newString = NSAttributedString(string: stringValue, attributes: [NSKernAttributeName: CGFloat(3.0), NSFontAttributeName:UIFont (name: "Bangla MN", size: 16)!, NSForegroundColorAttributeName: UIColor.black])
         return newString
     }
 

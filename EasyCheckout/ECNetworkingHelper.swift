@@ -13,11 +13,13 @@ final class ECNetworkingHelper: NSObject {
     static let sharedInstance = ECNetworkingHelper()
     var keptItemIDs = [String]()
     var keptItemsArray = [ECItem]()
+    var itemCount = 0
 
 
-func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Void) -> Void {
 
-    let newURL = NSURL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
+func fetchCurrentFix(_ completionHandler: @escaping (_ data: [ECItem], _ error: NSError?) -> Void) -> Void {
+
+    let newURL = URL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
 
     if let requestUrl = newURL {
 
@@ -35,14 +37,14 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
                             objectArray.append(newResponseObject)
                         }
                         if itemArray.isEmpty == false {
-                            completionHandler(data: objectArray, error: nil)
+                            completionHandler(objectArray, nil)
                         }
                     }else {
                         print("error retrieving fix")
                     }
                 }else {
                     print("error performing request")
-                    NSNotificationCenter.defaultCenter().postNotificationName("badRequest", object: nil)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "badRequest"), object: nil)
                 }
         })
     }
@@ -52,16 +54,16 @@ func fetchCurrentFix(completionHandler: (data: [ECItem], error: NSError?) -> Voi
 
 
 
-func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvoice, error: NSError?) -> Void) -> Void {
+func updateCurrentFix(_ keptItemsArray: [String], completionHandler: @escaping (_ data: ECInvoice, _ error: NSError?) -> Void) -> Void {
 
 
-    let newURL = NSURL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
+    let newURL = URL(string:"https://fake-mobile-backend.herokuapp.com/api/current_fix")
 
     let params = ["keep" : keptItemsArray]
 
     if let requestUrl = newURL {
 
-        let putRequest = ECRequest(requestMethod: "PUT", url: requestUrl, params: params)
+        let putRequest = ECRequest(requestMethod: "PUT", url: requestUrl, params: params as [String : AnyObject])
 
         putRequest.performRequestWithHandler(
             { (success: Bool, object: AnyObject?) -> Void in
@@ -74,7 +76,7 @@ func updateCurrentFix(keptItemsArray: [String], completionHandler: (data: ECInvo
                         newResponseObject = ECInvoice(dictionary: dic)
 
                         if dic.isEmpty == false {
-                            completionHandler(data: newResponseObject, error: nil)
+                            completionHandler(newResponseObject, nil)
                         }
 
                     }else {

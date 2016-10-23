@@ -30,7 +30,7 @@ class EasyCheckoutTests: XCTestCase {
             "name": "Corinna Striped Dolman Top",
             "price": "48.0",
             "brand": "Market & Spruce",
-            "image_url": "http://www.stylemethrifty.com/wp-content/uploads/2015/01/stitch-fix-dolman-striped-top-smt.jpg"]
+            "image_url": "http://www.stylemethrifty.com/wp-content/uploads/2015/01/stitch-fix-dolman-striped-top-smt.jpg"] as [String : Any]
         let invoiceData = [
             "total": 123.2,
             "subtotal": 112,
@@ -53,7 +53,7 @@ class EasyCheckoutTests: XCTestCase {
 
     func testFetchFix() {
         
-        let expectation = self.expectationWithDescription("High Expectations")
+        let expectation = self.expectation(description: "High Expectations")
 
 
         networkingHelper.fetchCurrentFix { (data, error) in
@@ -70,7 +70,7 @@ class EasyCheckoutTests: XCTestCase {
 
         }
         
-        self.waitForExpectationsWithTimeout(5.0, handler: { (error) in
+        self.waitForExpectations(timeout: 5.0, handler: { (error) in
             print("error \(error)")
         })
         

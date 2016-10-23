@@ -12,17 +12,21 @@ import UIKit
 final class ECProgressView: UIView {
 
     var count: Int
-    private var coloredUpToIndex: Int
-    private var layerArray: [CAShapeLayer]
+    fileprivate var coloredUpToIndex: Int
+    fileprivate var layerArray: [CAShapeLayer]
+    
+    func setColoredUpToIndex(_ index: Int) {
+        coloredUpToIndex = index
+        
+//        self.perform(#selector(ECProgressView.animateViewUpdate), with: nil, afterDelay: 1.5)
+    }
 
 
     override init(frame: CGRect) {
-        self.count = Int()
+        self.count = 5
         self.coloredUpToIndex = 0
         self.layerArray = [CAShapeLayer]()
         super.init(frame: frame)
-
-//        self.backgroundColor = .greenColor()
 
     }
 
@@ -39,7 +43,7 @@ final class ECProgressView: UIView {
     }
 
     //creates the shape layer, grayed with spaces in between
-    func createShapeLayer(count: Int) {
+    func createShapeLayer(_ count: Int) {
 
         //calculate width of the view
         let width = self.frame.width
@@ -52,76 +56,118 @@ final class ECProgressView: UIView {
         let gapLength = singleProgressLength * 0.10
 
         //new single progress length = progress length - gap
-        var newSingleProgressLength = singleProgressLength - gapLength
-        let staticWidth = newSingleProgressLength
+        var newSingleProgressLength : CGFloat = 0.0
+        let staticWidth = singleProgressLength - gapLength
 
 //        loop through the count
         for i in 1...count {
             let layer = CAShapeLayer()
 
-
-
             //start at 0 for the first layer
-            if i == 1 {
-                layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: staticWidth, height: self.frame.height), cornerRadius: 1).CGPath
+            layer.path = UIBezierPath(roundedRect: CGRect(x: 0 + (newSingleProgressLength + gapLength), y: 0, width: staticWidth, height: self.frame.height), cornerRadius: 1).cgPath
+            newSingleProgressLength += (staticWidth + gapLength)
+            if i <= coloredUpToIndex {
+                layer.fillColor = UIColor(netHex:0xD8D8D8).cgColor
 
             }else {
-                layer.path = UIBezierPath(roundedRect: CGRect(x: 0 + (newSingleProgressLength + gapLength), y: 0, width: staticWidth, height: self.frame.height), cornerRadius: 1).CGPath
-                newSingleProgressLength += (staticWidth + gapLength)
-                print(newSingleProgressLength)
-                print(newSingleProgressLength)
+                layer.fillColor = UIColor(netHex:0xD8D8D8).cgColor
             }
-
-            layer.fillColor = UIColor(netHex:0xD8D8D8).CGColor
             self.layer.addSublayer(layer)
-
             layerArray.append(layer)
         }
-        print(layerArray)
-        let layer = layerArray[1]
-        layer.fillColor = UIColor(netHex:0xF7B445).CGColor
-
-
-
-//         for each draw a rectangle cashape layer
-//        (keep incrementing by the x by the width + gap)
+        
+//        let poop = layerArray[1]
+//        //blah
+//        let bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        
+//        // Create CAShapeLayerS
+//        let rectShape = CAShapeLayer()
+//        rectShape.bounds = bounds
+//        rectShape.position = self.center
+//        rectShape.cornerRadius = bounds.width / 2
+//        self.layer.addSublayer(rectShape)
+//        
+//        // Apply effects here
+//        // 1
+//        rectShape.path =  UIBezierPath(ovalIn: rectShape.bounds).cgPath
 //
-//            add each to the view
-//            store each variable in the layerArray
+//        
+//        rectShape.lineWidth = 4.0
+//        rectShape.strokeColor = UIColor(netHex:0xF7B445).cgColor
+//
+//        rectShape.fillColor = UIColor.clear.cgColor
+//        
+//        // 2
+//        rectShape.strokeStart = 0
+//        rectShape.strokeEnd = 0.5
+//        
+//        // 3
+//        let start = CABasicAnimation(keyPath: "strokeStart")
+//        start.toValue = 0.7
+//        let end = CABasicAnimation(keyPath: "strokeEnd")
+//        end.toValue = 1
+//        
+//        // 4
+//        let group = CAAnimationGroup()
+//        group.animations = [start, end]
+//        group.duration = 1.5
+//        group.autoreverses = true
+//        group.repeatCount = HUGE // repeat forver
+//        rectShape.add(group, forKey: nil)
+
+        var fromPoint = CGPoint(x: 7, y:2 )
+        var toPoint = CGPoint(x: 71, y: 2)
+
+        var path: UIBezierPath = UIBezierPath()
+        path.move(to: fromPoint)
+        path.addLine(to: toPoint)
+        
+        // Create a CAShape Layer
+        var pathLayer: CAShapeLayer = CAShapeLayer()
+        pathLayer.frame = self
+            .bounds
+        pathLayer.path = path.cgPath
+        pathLayer.strokeColor = UIColor(netHex:0xF7B445).cgColor
+        pathLayer.fillColor = nil
+        pathLayer.lineWidth = 3.5
+        pathLayer.lineJoin = kCALineJoinBevel
+        
+        // Add layer to views layer
+        self.layer.addSublayer(pathLayer)
+        
+        // Basic Animation
+        var pathAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        pathAnimation.duration = 2.0
+        pathAnimation.fromValue = NSNumber(value: 0.0)
+        pathAnimation.toValue = NSNumber(value:1.0)
+        
+        // Add Animation
+        pathLayer.add(pathAnimation, forKey: "strokeEnd")
 
     }
 
 
     // Adds increment to the progress view, filling a rectangle with animation
-    func updateView() {
-
-        //select next layer in array
-        let layer = layerArray[coloredUpToIndex]
-        print(layer)
-
-
-        //change color of the layer in animation
-
-        UIView.animateWithDuration(0.5, delay: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-
-            layer.backgroundColor = UIColor(netHex:0xF7B445).CGColor
-
-
-            }, completion: { (finished: Bool) -> Void in
-        })
-
-        coloredUpToIndex++
-
-
+    func animateViewUpdate() {
+        var delay : TimeInterval = 0.5
+        for layer in layerArray {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) { () -> Void in
+                let animation = CABasicAnimation(keyPath: "opacity")
+                animation.duration = 1.0
+                animation.fromValue = NSNumber(value: 0.0 as Float)
+                animation.toValue = NSNumber(value: 1.0 as Float)
+                layer.add(animation, forKey: "animateOpacity")
+                self.perform(#selector(ECProgressView.animateViewUpdate), with: nil, afterDelay: delay)
+            }
+            delay += 0.5
+        }
     }
 
+
     override func layoutSubviews() {
-
+        super.layoutSubviews()
         createShapeLayer(count)
-        updateView()
-
-
-
     }
         
 }

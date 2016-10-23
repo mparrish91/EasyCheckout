@@ -41,26 +41,26 @@ class EasyCheckoutUITests: XCTestCase {
         XCTAssert(nextButton.exists)
 
         //Does CollectionView Exist
-        let element = app.otherElements.containingType(.NavigationBar, identifier:"My Items").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        let collectionView = element.childrenMatchingType(.CollectionView).element
+        let element = app.otherElements.containing(.navigationBar, identifier:"My Items").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        let collectionView = element.children(matching: .collectionView).element
         XCTAssert(collectionView.exists)
 
         //Does collectionview image exist
-        let image = app.collectionViews.cells.otherElements.childrenMatchingType(.Image).element
+        let image = app.collectionViews.cells.otherElements.children(matching: .image).element
         XCTAssert(image.exists)
 
         //Scroll Collectionview?
         collectionView.tap()
 
         //Does Page Control exist?
-        let pageControl = element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let pageControl = element.children(matching: .other).element(boundBy: 1)
         XCTAssert(pageControl.exists)
 
 
         //Do Labels and ImageViews Exit
 
         let myCartLabel = app.staticTexts["My Cart"]
-        let progressView = element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let progressView = element.children(matching: .other).element(boundBy: 1)
         let nameIcon = app.images["nameIcon"]
         let brandIcon = app.images["brandIcon"]
         let costIcon = app.images["costIcon"]
@@ -84,7 +84,7 @@ class EasyCheckoutUITests: XCTestCase {
         keepButton.tap()
 
         //Alert View??
-        let alertView = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Alert).element
+        let alertView = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .alert).element
         XCTAssert(alertView.exists)
 
         let okButton = app.alerts.collectionViews.buttons["OK"]
@@ -354,7 +354,7 @@ class EasyCheckoutUITests: XCTestCase {
         XCTAssert(totalAmount.exists)
 
 
-        let line = app.otherElements.containingType(.NavigationBar, identifier:"Checkout").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
+        let line = app.otherElements.containing(.navigationBar, identifier:"Checkout").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
         XCTAssert(line.exists)
 
         //Does confirm button exist

@@ -11,24 +11,24 @@ import Foundation
 
 final class ECInvoice: NSObject {
 
-    var subtotal: String?
-    var tax : String?
-    var total : String?
+    var subtotal: Float?
+    var tax : Float?
+    var total : Float?
 
 
     init(dictionary: [String:AnyObject]) {
         super.init()
 
-        if let sub = dictionary["subtotal"] as? Int {
-            subtotal = String(sub)
+        if let sub = dictionary["subtotal"] as? Float {
+            subtotal = sub
         }
 
-        if let tx = dictionary["tax"] as? Int {
-            tax = String(tx)
+        if let tx = dictionary["tax"] as? Float {
+            tax = tx
         }
 
-        if let tl = dictionary["total"] as? Int {
-            total = String(tl)
+        if let tl = dictionary["total"] as? Float {
+            total = tl 
         }
     }
 
