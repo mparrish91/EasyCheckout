@@ -1,4 +1,4 @@
-# - *Easy Checkout*
+# *Easy Checkout*
 
 **Easy Checkout** is a shopping checkout application using a custom Heroku Backend.  Built in Swift.  No Storyboards. Using NSLayoutAnchor.
 
